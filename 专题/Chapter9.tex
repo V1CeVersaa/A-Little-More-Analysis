@@ -1,0 +1,38 @@
+\chapter{曲线积分和曲面积分}
+\section{曲线和曲面}
+    \subsection{曲面的第一基本形式}
+    一个曲面\(\mit\Omega\)的参数方程为\[\bm{r}=\bm{r}(u,v),\ (u,v)\in D\]
+    我们假定\(\bm{r}=\bm{r}(u,v)\)连续可微足够多次并且满足正则条件：\(\bm{r}_u\times\bm{r}_v\neq0,\ \forall(u,v)\in D\).考察曲面上的一条曲线\(L: \bm{r}=\bm{r}(u(t),v(t))\),\ \(t\in J\),且\(u(t)\)和\(v(t)\)都连续可微.上式对\(t\)求导得：
+    \[\bm{r}'=\bm{r}_u\frac{\mathrm{d}u}{\dd t}+\bm{r}_u\frac{\dd u}{\dd t},\enspace\dd\bm{r}=\bm{r}_u\dd u+\bm{r}_v\dd v.\]
+    曲线\(L\)的弧长微元可以表示为:\[\dd s=\Vert\bm{r}'\Vert\dd t=\pm\Vert\bm{r}'\dd t\Vert=\pm\Vert\dd\bm{r}\Vert.\]
+    进而有:\[\dd s^2=\Vert\dd\bm{r}\Vert^2=\langle\dd\bm{r},\dd\bm{r}\rangle=E\dd u^2+2F\dd u\dd v+G\dd v^2.\]
+    其中:\[E=\bm{r}_u^2,\enspace F=\bm{r}_u\cdot\bm{r}_v,\enspace G=\bm{r}_v^2.\]
+    并且记\[I(\dd u,\dd v)=E\dd u^2+2F\dd u\dd v+G\dd v^2.\]
+    于是曲面\(\mit\Omega\)上的曲线\(L\)的弧长可以按照这样计算:\[s=s_0+\int_{t_0}^{t}\sqrt{E\left(\frac{\dd u}{\dd t}\right)^2+2F\frac{\dd u}{\dd t}\frac{\dd v}{\dd t}+G\left(\frac{\dd v}{\dd t}\right)^2}\dd t=s_0+\int_{t_0}^{t}\sqrt{I\left(\frac{\dd u}{\dd t},\frac{\dd v}{\dd t}\right)}\dd t.\]
+
+    于是我们将微分\(\dd u\)和\(\dd v\)的二次型\[I=E\dd u^2+2F\dd u\dd v+F\dd v^2\]称为曲面\(\mit\Omega\)的第一基本形式.曲面上的曲线的弧长取决于这个曲面的第一基本形式，后面将要见到，曲线块的面积也取决于这个曲面的第一基本形式.因而有：\textbf{曲面的第一基本形式决定了曲面的度量性质}.
+    
+\section{第一类曲线积分}
+\section{第二类曲线积分}
+\section{第一类曲面积分}
+\section{第二类曲面积分}
+
+    值得注意的是，为了书写的简便，我们有时候也会将\(\dd x\wedge\dd y,\dd y\wedge\dd z\)和\(\dd z\wedge\dd x\)等记号简写为\(\dd x\dd y,\dd y\dd z\)和\(\dd z\dd x\).比如积分\(\displaystyle\int_{\mit\Sigma}f(x,y,z)\dd x\wedge\dd y\)就可以简写为\(\displaystyle\int_{\mit\Sigma}f(x,y,z)\dd x\dd y\).
+    \begin{example}
+        计算积分\(\displaystyle\mit\Phi=\int_{\mit\Sigma}x^2\mathrm{d}y\wedge\mathrm{d}z+y^2\mathrm{d}z\wedge\mathrm{d}x+z^2\mathrm{d}x\wedge\mathrm{d}y\),其中\(\mit\Sigma\)是球面\((x-a)^2+(y-b)^2+(z-c)^2=R^2\),方向为外侧。
+    \end{example}
+
+\section{Green公式、Gauss公式和Stokes公式}
+    \subsection{Green公式}
+    \begin{example}
+        设\(\mit\Omega\)为包含原点的有界区域，其边界为\(C^1\)曲线，方向为诱导定向，计算积分\[I=\int_{\partial\mit\Omega}\frac{-y\dd x}{x^2+y^2}+\frac{x\dd y}{x^2+y^2}.\]
+    \end{example}
+    \subsection{Gauss公式}
+    \begin{theorem}[Gauss公式]
+        
+    \end{theorem}
+    
+    将以函数\(P,Q,R\)为分量的向量场\(X=(P,Q,R)\)的散度\(\nabla\cdot X\)（或\(\mathrm{div}X\)）定义为\[\mathrm{div}X=\nabla\cdot X=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.\]
+    散度是将Del算符(\(\nabla\))点积一个向量场X，效果是将一个向量场转换成了一个标量场.利用散度，Gauss公式可以写为以下形式：\[\int_{\mit\Omega}\nabla\cdot X\dd x\dd y\dd z=\int_{\partial\mit\Omega}X\cdot\vec{n}\dd\sigma.\]
+    其中\(\vec{n}\)是边界曲面的单位外法向量，上式也被称为散度定理。
+    \subsection{Stokes公式}

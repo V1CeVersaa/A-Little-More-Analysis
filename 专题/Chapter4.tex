@@ -1,0 +1,159 @@
+\chapter{一元函数积分学}
+    \section{Review:从Riemann到Lebesgue}
+    \subsection{函数的可积性}
+    % 新的小节
+    \subsection{Riemann积分的一般性质与应用}
+    利用黎曼和可以解决某些本难以解决的级数问题，这里浅举几例。解决这类问题的关键在于凑出黎曼和的形式，并且我们一般都取等距分割。
+    \begin{example}
+        计算或证明下面的极限：
+        \begin{enumerate}
+            \item $$\lim\limits_{n\rightarrow\infty}\sum_{k=1}^{n}\frac{1}{\sqrt{n^2+n+k^2}}.$$
+            \item $$\lim\limits_{n\rightarrow\infty}\sum_{k=1}^{n}\left[f(x+\frac{k}{n^2+k^2})-f(x)\right]=f'(x)\frac{\ln 2}{2}.$$
+        \end{enumerate}
+    \end{example}
+    \begin{proof}
+        
+    \end{proof}
+    \begin{example}
+        非负函数$f\in C\left[a,b\right]$，证明：$$\lim\limits_{n\rightarrow\infty}\left(\int_{a}^{b}f^{n}(x)dx\right)^{\frac{1}{n}}=\max\{f(x)\ |\ x\in\left[a,b\right]\}.$$
+    \end{example}
+    % 新的小节
+    \subsection{变限积分}
+    变限积分的主要结果是下面两个命题。
+    \begin{theorem}
+        \begin{enumerate}
+            \item 设$f\in R\left[a,b\right]$，则$F(x)=\int_{a}^{x}f(t)dt$与$G(x)=\int_{x}^{a}f(t)dt$在$\left[a,b\right]$上连续。
+            \item 设$f\in R\left[a,b\right]$，$x\in\left[a,b\right]$是$f$的连续点，则$$\frac{d}{dx}\int_{a}^{x}f(t)dt=f(x).$$
+        \end{enumerate}
+    \end{theorem}
+    由上面的定理可以得出原函数存在的一个充分条件。并且，变限积分的一个副产品是微积分基本定理，亦即Newton-Leibniz公式。
+    \begin{theorem}[原函数存在定理]
+        设$f\in C\left[a,b\right]$，则$f$在$\left[a,b\right]$上存在原函数。
+    \end{theorem}
+    \begin{example}
+        设$f\in R\left[A,B\right]$，$a,b\in\left[A,B\right]$是$f$的两个连续点，证明：$$\lim\limits_{h\rightarrow 0}\int_{a}^{b}\frac{f(x+h)-f(x)}{h}dx=f(b)-f(a).$$
+    \end{example}
+    \begin{proof}
+        要点是通过换元改变积分限，然后将极限看作求导。
+        \begin{equation*}
+            \begin{split}
+                \lim\limits_{h\rightarrow 0}\int_{a}^{b}\frac{f(x+h)-f(x)}{h}dx
+                &=\lim\limits_{h\rightarrow0}\frac{1}{h}\left(\int_{a}^{b}f(x+h)dx-\int_{a}^{b}f(x)dx\right)\\
+                &=\lim\limits_{h\rightarrow0}\frac{1}{h}\left(\int_{a+h}^{b+h}f(x)dx-\int_{a}^{b}f(x)dx\right)\\
+                &=\lim\limits_{h\rightarrow0}\frac{1}{h}\left(\int_{b}^{b+h}f(x)dx-\int_{a}^{a+h}f(x)dx\right)\\
+                &=f(b)-f(a)
+            \end{split}
+        \end{equation*}
+    \end{proof}
+    Tip: 这个题目不能使用下面的证法，下面的证明每一步都是错误的。
+    \begin{equation*}
+        \begin{split}
+            \lim\limits_{h\rightarrow 0}\int_{a}^{b}\frac{f(x+h)-f(x)}{h}dx
+            &=\int_{a}^{b}\lim\limits_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}dx\\
+            &=\int_{a}^{b}f'(x)dx=f(b)-f(a)
+        \end{split}
+    \end{equation*}
+    首先，没有依据就把求极限和积分号交换是不对的，我们需要在级数那章讨论求极限和积分号交换的条件；其次，对差商求导的时候忘记了题目只给了$f$在两个点处的连续条件，甚至没有给可导的条件；最后，即使$f(x)$在区间$\left[a,b\right]$可导，$f'(x)$也不一定可积。
+    % 新的一节
+    \section{积分的逼近性质}
+    在本节，我们主要说明积分的逼近性质，即，如果一个函数是Riemann可积的，那么它可以被一列简单函数(通常是阶梯函数或者分段线性函数)逼近。这一性质在证明积分的一些性质时是非常有用的。
+    \begin{theorem}[阶梯逼近]
+        设$f\in R\left[a,b\right]$，则存在两列阶梯函数$\phi_n,\psi_n$，使得$$\phi_n\leq f\leq\psi_n,\int_{a}^{b}\left[\psi_n(x)-\phi_n(x)\right]dx<\frac{1}{n},$$
+        且每一个$\phi_n,\psi_n$分别介于$f$的上下确界之间，此外，任给$g\in R\left[a,b\right]$，均有$$\lim\limits_{n\rightarrow\infty}\int_{a}^{b}\phi_n(x)g(x)dx = \lim\limits_{n\rightarrow\infty}\int_{a}^{b}\psi_n(x)g(x)dx = \lim\limits_{n\rightarrow\infty}\int_{a}^{b}f(x)g(x)dx.$$
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+    \begin{theorem}[分段线性逼近]
+        设$f\in R\left[a,b\right]$，则存在一列\textbf{连续的}分段线性函数$f_n$，使得$f_n(a)=f(a),f_n(b)=f(b)$，$$\lim\limits_{n\rightarrow\infty}\int_{a}^{b}\left|f_n(x)-f(x)\right|dx =0,$$
+        且每一个$f_n$均介于$f$的上下确界之间，此外，任给$g\in R\left[a,b\right]$，均有$$\lim\limits_{n\rightarrow\infty}\int_{a}^{b}f_n(x)g(x)dx = \lim\limits_{n\rightarrow\infty}\int_{a}^{b}f(x)g(x)dx.$$
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+    下面是一个利用逼近解决的问题,我们给出阶梯逼近和分段线性逼近两种做法。
+    \begin{example}[Riemann-Lebegsue引理]
+        设$f\in R\left[a,b\right]$，则$$\lim\limits_{\lambda\rightarrow +\infty}\int_{a}^{b}f(x)\sin{\lambda x}dx=\lim\limits_{\lambda\rightarrow +\infty}\int_{a}^{b}f(x)\cos{\lambda x}dx= 0.$$
+    \end{example}
+    \begin{proof}
+        
+    \end{proof}
+    我们甚至还有更强的定理，亦即Weierrstrass逼近定理，它表明了连续函数可以被多项式逼近。
+    \begin{theorem}[Weierrstrass逼近定理]
+        设$f\in C^0\left[a,b\right]$，则任给$\epsilon>0$，存在多项式$P(x)$，使得$\left|P(x)-f(x)\right|<\epsilon$在$\left[a,b\right]$中处处成立。
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+    \begin{definition}[Bernstein多项式]
+        
+    \end{definition}
+    \begin{example}
+        设$f$在$\left[0,1\right]$中满足条件$\left|f(x)-f(y)\right|<L\left|x-y\right|$，则
+        $$\left|B_n(x,f)-f(x)\right|\leq\frac{L}{2\sqrt{n}},\forall x\in\left[0,1\right].$$
+    \end{example}
+    \begin{example}[上一个例子的加强]
+        
+    \end{example}
+    \begin{example}[Riemann引理]
+        设$f$是周期函数，周期为$T$，如果$f$在闭区间$\left[0,T\right]$中可积，则有以下陈述：
+        \begin{enumerate}
+            \item $f$在任何闭区间中均可积，并且在任何长度为$T$的区间中的积分都相等.
+            \item 思考此式的含义并证明$$\lim\limits_{\lambda\rightarrow\infty}\frac{1}{\lambda}\int_{0}^{\lambda}f(x)dx=\frac{1}{T}\int_{0}^{T}f(x)dx.$$
+            \item $g\in\bm{R}\left[a,b\right]$，证明$$\lim\limits_{\lambda\rightarrow\infty}\int_{a}^{b}f(\lambda x)g(x)dx=\frac{1}{T}\int_{0}^{T}f(x)dx\int_{a}^{b}g(x)dx.$$
+        \end{enumerate}
+    \end{example}
+    % 新的一节
+    \section{积分中值定理}
+    \begin{theorem}[积分第一中值定理]
+        设$f,g\in R\left[a,b\right]$，且$g$\textbf{不变号}，则存在$\mu\in\left[\inf_{\left[a,b\right]}f(x),\sup_{\left[a,b\right]}f(x)\right]$，使得$$\int_{a}^{b}f(x)g(x)dx = \mu\int_{a}^{b}g(x)dx.$$
+        特别地，若$f$连续，则存在$\xi\in\left[a,b\right]$，使得$\mu=f(\xi)$.
+    \end{theorem}
+    \begin{theorem}[积分第二中值定理]
+        设$f\in R\left[a,b\right]$，$g$是$\left[a,b\right]$中的单调函数，则存在$\xi\in\left[a,b\right]$，使得$$\int_{a}^{b}f(x)g(x)dx = g(a)\int_{a}^{\xi}f(x)dx + g(b)\int_{\xi}^{b}f(x)dx.$$
+        更进一步，如果$g$是非负函数：
+        \begin{enumerate}
+            \item 如果$g$在$\left[a,b\right]$单调递减，则存在$\zeta\in\left[a,b\right]$，使得$$\int_a^bf(x)g(x)dx=g(a)\int_{a}^{\zeta}f(x)dx.$$
+            \item 如果$g$在$\left[a,b\right]$单调递增，则存在$\eta\in\left[a,b\right]$，使得$$\int_a^bf(x)g(x)dx=g(b)\int_{\eta}^{b}f(x)dx.$$
+        \end{enumerate}
+    \end{theorem}
+    % 新的一节
+    \section{广义积分}
+
+    % 新的一节
+    \section{Stieltjes积分}
+    % 习题
+    \section{练习}
+    下面是一些重要积分的计算。
+    \begin{exercise}
+        \begin{enumerate}
+            \item 计算Euler积分：$$\int_{0}^{\pi/2}\ln\sin xdx.$$
+            \item 计算Euler-Poisson积分：$$\int_{0}^{+\infty}e^{-x^2}dx.$$
+            \item 
+        \end{enumerate}
+    \end{exercise}
+    下面是一些对积分求极限的习题。
+    \begin{exercise}
+        \begin{enumerate}
+            \item 证明：$$\lim\limits_{n\rightarrow\infty}\int_{0}^{\pi/2}\sin^nxdx=0.$$
+            \item $f\in C\left[-1,1\right]$，证明：$$\lim\limits_{h\rightarrow0^+}\int_{-1}^{1}\frac{h}{h^2+x^2}f(x)dx= \pi f(0).$$
+            \item $f\in C\left[-1,1\right]$，证明：$$\lim\limits_{n\rightarrow\infty}\int_{0}^{1}nx^nf(x)dx=f(1).$$
+        \end{enumerate}
+    \end{exercise}
+    下面这些题需要灵活地使用微分中值定理、泰勒公式以及积分中值定理。
+    \begin{exercise}
+        \begin{enumerate}
+            \item 设$f\in C^2\left[a,b\right]$，$M=\sup\limits_{x\in\left[a,b\right]}\lvert f''(x)\rvert$，证明：$$\lvert\int_{a}^{b}f(x)dx-\frac{b-a}{2}\left(f(a)+f(b)\right)\rvert\leq\frac{M}{12}(b-a)^3.$$
+            \item 若$a>0$，且$f\in C^1\left[0,a\right]$，则证明：$$\lvert f(0)\rvert\leq\frac{1}{a}\int_{0}^{a}\lvert f(x)\rvert dx+\int_{0}^{a}\lvert f'(x)\rvert dx.$$
+            \item 若$f\in C^2\left[a,b\right]$，证明：存在$\xi\in\left(a,b\right)$，使得：$$f''(\xi)=\frac{24}{(b-a)^3}\int\limits_{a}^{b}\left[f(x)-f(\frac{a+b}{2})\right]dx.$$
+            \item 若$f\in C^1\left[0,1\right]$，且$f(x)>0,x\in\left[0,1\right]$，证明：$\forall n>1,\exists \xi_n\in\left(0,1\right)$，使得：$$\frac{1}{n}\int_{0}^{1}f(x)dx=\int_{0}^{\xi_n}f(x)dx+\int_{\xi_n}^{1}f(x)dx.$$并且，
+            \[\lim\limits_{n\rightarrow+\infty}n\xi_n=\frac{1}{f(0)+f(1)}\int_{0}^{1}f(x)dx.\]
+        \end{enumerate}
+    \end{exercise}
+    有关变上限积分，我们有下面的习题，我们尤其需要注意变上限积分的求导问题。
+    \begin{exercise}
+        \begin{enumerate}
+            \item $f\in C\left[-1,1\right]$，$f$在$x=0$可导，$f(0)=0,f'(0)\neq0$，求极限：$$I=\lim\limits_{x\rightarrow0^+}\dfrac{\displaystyle \int_{0}^{x}(x^2-t^2)f(t)dt}{\displaystyle \int_{0}^{x}tf(x^2-t^2)dt}.$$
+            \item 设$f\in C^1\left[0,a\right]$，$f(0)=0$，证明：\[\int_{0}^{a}\vert  f(x)f'(x)\vert\mathrm{d}x\leq\frac{a}{2}\int_{0}^{a}(f'(x))^2\mathrm{d}x.\]
+        \end{enumerate}
+    \end{exercise}

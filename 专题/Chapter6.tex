@@ -1,0 +1,69 @@
+\chapter{\(\mathbb{R}^n\)上的拓扑}
+从这一章开始，我们开始对\(\mathbb{R}^n\)上的多元函数的研究，我们仍然希望仿照前面的思路，按照连续性、可微性、可积性来研究多元函数。但是\(\mathbb{R}^n\)上的拓扑结构对我们来说是格外陌生的，我们需要重新对极限、连续等概念进行重新定义，另一方面，我们希望在尽可能提升一般性的同时，保持先前研究的许许多多优美且强大的性质。所以从范数到度量，我们希望把极限的定义推广到一半的度量空间上；我们还要借助点集拓扑的一些工具，借以研究连续映射的性质，并且进一步处理先前的实数系基本定理等知识。
+
+\section{度量空间}
+\begin{definition}[度量]
+    设\(X\)是非空集合，如果映射\(d:X\times X\rightarrow\mathbb{R}_{\geqslant0}\)满足以下条件：
+    \begin{enumerate}
+        \item （\textbf{正定性}）：任给\(x,y\in X\)，均有\(d(x,y)\geq 0\)，且\(d(x,y)=0\)当且仅当\(x=y\)；
+        \item （\textbf{对称性}）：任给\(x,y\in X\)，均有\(d(x,y)=d(y,x)\)；
+        \item （\textbf{三角不等式}）：任给\(x,y,z\in X\)，均有\(d(x,z)\leq d(x,y)+d(y,z)\)。
+    \end{enumerate}
+    则称\(d\)是\(X\)上的一个\textbf{度量}或者\textbf{距离}，称二元组\((X,d)\)是一个\textbf{度量空间}或者\textbf{距离空间}。
+\end{definition}
+在数学中，所谓的\textbf{空间}一般指的是配备了某种\textbf{结构}的集合\(X\)。我们使用\(\mathbb{R}^n\)上的标准内积来定义距离，显然\(\mathbb{R}^n\)是关于\(\mathbb{R}\)的线性空间，我们将\textbf{有限维的内积空间}称为\textbf{欧式空间}。
+\begin{definition}[内积]
+    设\(V\)是实数域上的线性空间，如果映射\(g:V\times V\rightarrow\mathbb{R}\)满足以下条件：
+    \begin{enumerate}
+        \item （\textbf{正定性}）：任给\(x\in V\)，均有\(g(x,x)\geq 0\)，且\(g(x,x)=0\)当且仅当\(x=0\)；
+        \item （\textbf{对称性}）：任给\(x,y\in V\)，均有\(g(x,y)=g(y,x)\)；
+        \item （\textbf{线性性}）：任给\(x,y,z\in V\)和\(\lambda,\mu\in\mathbb{R}\)，均有\(g(\lambda x+\mu y,z)=\lambda g(x,z)+\mu g(y,z)\)。
+    \end{enumerate}
+    则称\(g\)是\(V\)上的一个\textbf{内积}，称二元组\((V,g)\)是一个\textbf{内积空间}。我们常常使用\(\langle,\rangle\)表示内积，比如\(\langle x,y\rangle\)表示\(x,y\)的内积。
+
+    对于\(\mathbb{R}^n\)上的两个点\(u=(a_1,a_2,\dots,a_n),v=(b_1,b_2,\dots,b_n)\)，他们的\textbf{标准内积}或者\textbf{欧式内积}定义为：\[\langle u,v\rangle= \sum_{i=1}^{n}a_ib_i.\]
+\end{definition}
+\begin{definition}[范数]
+    \(V\)是\(\mathbb{R}\)(或者\(\mathbb{C}\))上的线性空间，如果映射\(\Vert \cdot \Vert:V\to\mathbb{R}_{\geqslant0}\)满足以下条件：
+    \begin{enumerate}
+        \item 对任意的\(x\in V,\lambda\in\mathbb{R}\)，有\(\Vert\lambda x\Vert=\vert\lambda\vert\Vert x\Vert\);
+        \item \(\Vert x\Vert=0\)当且仅当\(x=0\);
+        \item 对任意的\(x,y\in V\)，有\(\Vert x+y\Vert\leq\Vert x\Vert+\Vert y\Vert\).
+    \end{enumerate}
+    则称\(\Vert\cdot\Vert\)是\(V\)上的一个\textbf{范数}，称二元组\((V,\Vert\cdot\Vert)\)是一个\textbf{赋范线性空间}。
+\end{definition}
+直观来说，\(\Vert v\Vert\)就是计算向量\(v\)的某种长度，而度量则表示了两个点之间的某距离。有了内积就可以定义向量的长度（亦即范数）和向量的夹角，这来自于下面的\textbf{Schwarz不等式}；有了范数就可以定义度量，只需要定义\(d(x,y)=\Vert x-y\Vert\)即可。
+\begin{theorem}[Schwarz不等式]
+    设\((V,\langle,\rangle)\)为内积空间，\(u,v\in V\)，则\[\vert\langle u,v\rangle\vert\leq\Vert u\Vert\cdot\Vert v\Vert,\]等号成立当且仅当\(u,v\)线性相关。
+\end{theorem}
+
+\begin{proof}
+        
+\end{proof}
+根据Schwarz不等式，当\(u,v\)为非零向量的时候，可以取\(\theta(u,v)\in\left[0,\pi\right]\)，使得\[\cos\theta(u,v)=\frac{\langle u,v\rangle}{\Vert u\Vert\cdot\Vert v\Vert}.\]\(\theta(u,v)\)称为\(u,v\)的\textbf{夹角}，也记为\(\angle(u,v)\)。
+
+\section{基本点集拓扑}
+
+\begin{definition}[开集和闭集]
+    
+\end{definition}
+\begin{theorem}[开集闭集的基本性质]
+    \begin{enumerate}
+        \item 有限多个开集的交仍为开集，任意多个开集的并仍为开集；
+        \item 有限多个闭集的交仍为闭集，任意多个闭集的并仍为闭集；
+        \item 集合\(A\)为闭集当且仅当\(A\)中的任何收敛点列的极限均在\(A\)中。
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+上述定理的第三条表明了闭集的性质：闭集关于求极限运算是封闭的。
+\begin{definition}[连续映射]
+    
+\end{definition}
+\begin{definition}[连续映射的基本性质]
+    
+\end{definition}
+\begin{theorem}[连续映射的刻画]
+    设\(f:X\to Y\)是度量空间上的映射，则\(f\)为连续映射\(\iff\)开集的原像仍为开集\(\iff\)闭集的原像仍为闭集。
+\end{theorem}

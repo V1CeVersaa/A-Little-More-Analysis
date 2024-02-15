@@ -1,0 +1,188 @@
+\chapter{实数系的构造和数列极限}
+
+	\section{Review:基本定义和定理}
+	\subsection{数列极限}
+	\begin{definition}[数列极限的定义]
+		设$\{x_n\}$是一个给定数列，$a$是一个实常数，如果对于任意给定的$\epsilon>0$，可以找到正整数$N$，使得当$n>N$时，$$|x_n-a|<\epsilon$$成立，
+		则称数列$\{x_n\}$收敛于$a$，（或者$a$是数列$\{x_n\}$的极限），记为$$\lim\limits_{n\rightarrow\infty}x_n=a$$
+	\end{definition}
+
+	如果我们知晓邻域的概念，那么我们就可以引入下面的阐述，这样就可以给数列极限一个可视化的理解：
+	\begin{definition}[数列极限的几何阐述]
+		设$\{x_n\}$是一个给定的数列，$a$是一个实常数，如果对于任意给定的$\epsilon>0$，可以找到正整数$N$，使得当$n>N$时，$x_n\in O(a,\epsilon)$，
+		则$$\lim\limits_{n\rightarrow\infty}x_n=a$$
+	\end{definition}
+
+	另外，读者可以给出数列发散（即不收敛）的严谨定义（即练习1.1）\par
+	进一步的，我们可以对具有特殊极限或者有广义极限（参见如下说明）的数列给予命名，这样我们就有了无穷小量和无穷大量的概念，这两个概念很好地帮助了我们理
+	解了数列的极限。
+	\begin{definition}[无穷大量和无穷小量]
+		\begin{enumerate}
+			\item 如果数列$\{x_n\}$收敛于$0$，则我们称数列$\{x_n\}$是无穷小量；
+			\item 如果对于任意给定的$G>0$，可以找到正整数$N$，使得当$n>N$时，$$|x_n|>G$$成立，则称数列${x_n}$是无穷大量，
+			记为$$\lim\limits_{n\rightarrow\infty}x_n=\infty.$$
+			如果无穷大量$\{x_n\}$最终恒正（或者恒负），则称其为正无穷大量（或者负无穷大量）.\par
+			并且，如果数列$\{x_n\}$是无穷大量，我们则认为数列$\{x_n\}$有着广义极限.
+		\end{enumerate}
+	\end{definition}
+	
+	另外，我们经常能在提题目中看见类似下面的表述：$\lim\limits_{n\rightarrow\infty}x_n=a\ (-\infty<a<+\infty)$，这表明数列$\{x_n\}$
+	收敛于某个常数，而并非无穷大量。\par
+	利用无穷小量这一概念，我们可以给出数列极限的两个十分好用的等价定义，但是需要先讨论一下无穷大量和无穷小量的性质。
+	\begin{property}[无穷大量和无穷小量的性质]
+		\begin{enumerate}
+            \item 
+        \end{enumerate}
+	\end{property}
+	\begin{corollary}[数列极限的等价定义]
+		\begin{enumerate}
+			\item 如果数列$\{x_n-a\}$是无穷小量，则数列$\{x_n\}$收敛于$a$;
+			\item 设$\{x_n\}$是一个给定数列，$a$和$K\ (K>0)$是两个实常数，如果对于任意给定的$\epsilon>0$，可以找到正整数$N$，
+			使得当$n>N$时，$$|x_n-a|<K\epsilon$$成立，则$$\lim\limits_{n\rightarrow\infty}x_n=a$$
+		\end{enumerate}
+	\end{corollary}
+
+	我们需要格外注意并且理解第二条推论，这允许我们更容易证明数列收敛于某个极限。
+	下面开始复习数列极限的一些性质：
+	\begin{property}[数列极限的性质]
+		\begin{enumerate}
+			\item （极限的唯一性）收敛数列的极限必唯一；
+			\item （数列的有界性）收敛数列必有界；
+			\item （数列的保序性）
+			\item （\textbf{夹逼定理}）
+		\end{enumerate}
+	\end{property}
+	\begin{property}[数列极限的\textbf{四则运算}]
+		
+	\end{property}
+	
+	\begin{theorem}[Stolz定理]
+		设$\{y_n\}$是严格单调\textbf{递增}的\textbf{正无穷大量}，且$$\lim\limits_{n\rightarrow\infty}\frac{x_{n}-x_{n-1}}{y_{n}-y_{n-1}}=a\ (a\in\mathbb{R}\cup\{-\infty,+\infty\})$$
+		则有：$$\lim\limits_{n\rightarrow\infty}\frac{x_n}{y_n}=a$$
+	\end{theorem}
+
+	Stolz定理的证明是十分经典的先处理\textbf{极限是}$\bm{0}$的情况，再利用这种容易证明并且容易推广的情况帮助完成后续证明的例子.
+
+	\subsection{实数系完备性定理}
+	\begin{definition}[有界性]
+		我们称一个集合$\bm{A}$\textbf{有上界}，当且仅当$\exists\ M\in\mathbb{R},\forall x\in\bm{A},x<M$\par
+		类似地，我们可以定义集合\textbf{有下界}.当一个集合既有上界又有下界，我们称这个集合\textbf{有界}.\par
+		我们记$\bm{U}$是$\bm{A}$的全体上界所组成的集合，则显然$\bm{U}$没有最大数，但是当$\bm{U}$有最小数$\beta$的时候，我们称$\beta$是
+		$\bm{A}$的\textbf{上确界}，记作$$\beta = \sup\ \bm{A}$$按这种方式，我们也可以定义\textbf{下确界}.
+	\end{definition}
+
+	容易看出，确界有两个性质，我们这里以上确界举例：
+	\begin{property}[上确界的性质]
+		对于数集$S$的上界$\beta$:
+		\begin{enumerate}
+			\item $\beta$是数集$S$的上界：$\forall x\in S$，有$x\leq\beta$.
+			\item 任何小于$\beta$的数不是数集$S$的上界：$\forall\epsilon>0,\exists\ x\in S$，使得$s>\beta-\epsilon$.
+		\end{enumerate}
+	\end{property}
+	\begin{theorem}[实数系连续性定理——确界存在定理]
+		非空有上界的实数集必定有上确界，非空有下界的实数集必定有下确界
+	\end{theorem}
+
+	教材上本定理的证明是由无穷小数法给出的，比较符合直观、比较容易理解.倘若以公理法定义实数集，本条定理会作为实数系的连续性公理存在.
+	而后续我们会给出由Dedekind分割以及由Contor基本列给出的两种不同的证明，这两种体系均能够很好地建立起完备且连续实数系.
+	\begin{theorem}[单调有界数列收敛定理]
+		单调有界数列必定收敛，更确切地说，数列一定收敛于他的确界．
+	\end{theorem}
+
+	这个证明通过确界存在定理以及确界的性质可以很容易给出，这里留作练习.
+	\begin{theorem}[闭区间套定理]
+		如果一组闭区间$\{[a_n,b_n]\}$满足条件:\par
+		\begin{enumerate}
+			\item $[a_{n+1},b_{n+1}]\subset[a_n,b_n],\ n=1,2,3\cdots$;
+			\item $\lim\limits_{n\rightarrow\infty}(n_n-a_n)=0$;
+		\end{enumerate}
+		则称这列闭区间形成一个闭区间套.\par
+		对于闭区间套$\{[a_n,b_n]\}$，存在\textbf{唯一}的实数$\xi$属于\textbf{所有}的闭区间$[a_n,b_n]$，且有$\xi=\lim\limits_{n\rightarrow\infty}a_n=\lim\limits_{n\rightarrow\infty}b_n$
+	\end{theorem}
+
+	利用闭区间套定理可以得到一个似乎和闭区间套定理完全不搭边的一个定理，但是这个定理是刻画实数系性质的一个很重要的定理:
+	\begin{theorem}
+		实数集是不可列集.
+	\end{theorem}
+	\begin{proof}
+		用反证法：假设实数集$\mathbb{R}$是可数集，则可以找到一种排列规律使得$$\mathbb{R}=\{x_1,x_2,\cdots,x_n,\cdots\},$$
+		则任取一个闭区间$\left[a_1,b_1\right]\subset\mathbb{R}$且$x_1\notin\left[a_1,b_1\right]$，然后将此区间三等分：则在等分后的区间：$$\left[a_1,\frac{2a_1+b_1}{3}\right],\left[\frac{2a_1+b_1}{3},\frac{a_1+2b_1}{3}\right],\left[\frac{a_1+2b_1}{3},\frac{b_1}{3}\right]$$中，
+		必存在一个区间，这个区间不包含$x_2$，则将这个区间记作$\left[a_2,b_2\right]$，则继续之前的操作(这是可以一直做下去的)，则我们可以得到一个闭区间套$\{\left[a_n,b_n\right]\}$，满足：
+		$$x_n\notin\left[a_n,b_n\right]$$则根据闭区间套定理，存在一个实数$\xi$属于所有的闭区间，换言之：$$\xi\neq x_n、 (n=1,2,3,\cdots)$$
+		而这恰恰与集合$\{x_1,x_2,\cdots,x_n\cdots\}$表示实数集$\mathbb{R}$矛盾!
+	\end{proof}
+
+	这个定理的证明很经典，各位可以复习一下.\par
+	下面这个定理在证明一个数列的发散与否很有用，这一点可以类似于判断方向导数的存在性.\par
+	\begin{theorem}
+		如果数列$\{x_n\}$收敛于$a$，则它的任何子列$\{x_{n_k}\}$也收敛于$a$.
+	\end{theorem}
+	\begin{theorem}[Bolzano-Weierstrass定理]
+		有界数列必有收敛子列.
+	\end{theorem}
+
+	在数列无界的时候，我们也有类似的定理
+	\begin{theorem}[Bolzano-Weierstrass定理(无界版)]
+		若数列$\{x_n\}$是一个无界数列，则必存在一个子列$\{x_{n_k}\}$使得$\lim\limits_{k\rightarrow\infty}x_{n_k}=\infty$
+	\end{theorem}
+
+	Bolzano-Weierstrass定理的另外一种表述如下：
+	\begin{theorem}[Bolzano-Weierstrass定理]
+		实数轴上的任何有界无限点集$S$至少存在一个聚点.
+	\end{theorem}
+	\begin{definition}[基本列]
+		如果数列$\{x_n\}$满足：对于任意给定的$\epsilon>0$，总存在一个自然数$N$，使得当$m,n>N$时，有：$$|x_m-x_n|<\epsilon$$则称数列$\{x_n\}$是一个\textbf{基本列}.
+	\end{definition}
+	\begin{theorem}[Cauchy收敛定理]
+		数列$\{x_n\}$收敛的充分必要条件是$\{x_n\}$是基本列.
+	\end{theorem}
+
+	Cauchy收敛定理表明了很重要的一件事:由实数组成的基本列$\{x_n\}$必存在实数极限，这个性质被称为实数的完备性.
+	我们在引入了点集拓扑等更深刻的理论之后会介绍另外一条实数系完备性定理——有限覆盖定理，这是实数系完备性定理的最后一块拼图，更好地刻画了实数系的性质.\par
+	\begin{theorem}[压缩映射定理]
+		
+	\end{theorem}
+
+	\subsection{例题与练习}
+	\begin{example}
+		证明：任何数列都有单调子列.
+	\end{example}
+	\begin{proof}
+		首先，对于无上界或者无下界的数列，根据无界的定义，我们能很容易地证明这个数列存在单调子列(更确切地说，无上界的数列必有递增子列，无下界的数列必有递减子列).\\
+		我们考虑有界的数列，分以下两种情况：
+		\begin{enumerate}
+			\item 如果$\forall k\in\mathbb{N}$，数列$\{a_{k+n}\}$存在最大数，则我们按下列方式构造单调递减数列$\{a_{m_n}\}$：对于$k=1$，取数列$\{a_{1+n}\}$的最大数$a_{m_1}$，接着考虑数列$\{a_{m_1+n}\}$，其必有最大数$a_{m_2}$且$a_{m_2}<a_{m_1}$，继续考虑数列$\{a_{m_2+n}\}\cdots$这是可以一直做下去的，这样，我们就得到了一个单调递减的子列$\{a_{m_n}\}$.
+			\item 如果至少存在一个$k$，令数列$\{a_{k+n}\}$不存在最大值，则我们按下列方式构造单调递增数列$\{a_{k+m_n}\}$：对于$m_1=1$，由于此数列不存在最大值，所以可以取出$m_2>m_1$，令$a_{k+m_1}<a_{k+m_2}\cdots$这是可以一直做下去的，这样，我们就得到了一个单调递增的子列$\{a_{k+m_n}\}$.
+		\end{enumerate}
+	\end{proof}
+
+	通过这个例题和单调有界数列收敛定理，我们可以直接得到Bolzano-Weierstrass定理.
+	\begin{example}
+		如果数列$\{x_n\}$满足$\lim\limits_{n\rightarrow\infty}x_n=a \ (-\infty<a<+\infty)$，则证明：$$\lim\limits_{n\rightarrow\infty}\sum_{k=1}^{n}\frac{x_k}{n}=a.$$
+	\end{example}
+	\begin{example}
+		设$0<\lambda<1,\lim\limits_{n\rightarrow\infty}a_n=a$，证明：$$\lim\limits_{n\rightarrow\infty}(a_n+\lambda a_{n-1}+\lambda^{2}a_{n-2}+\cdots+\lambda^{n}a_n)=\frac{a}{1-\lambda}$$
+	\end{example}
+	
+	\vspace{2ex}
+	\centerline{\heiti \Large 习题}
+
+	\vspace{2ex}
+	{We can never 'reach' infinity, we must develop methods which allow us to prove statements about infinitely many function values 'near infinity'.}
+	\begin{flushright}
+    	——Herbert Amann
+	\end{flushright}
+	\begin{enumerate}
+		\item 计算:$$\lim\limits_{n\to\infty}\left(\sum_{k=1}^{n}\sqrt[]{1+\frac{k}{n^2}}-n\right)$$
+	\end{enumerate}
+
+	\section{数列的上下极限}
+	我们首先考虑下面两个数列：\[a_n=\inf\{x_k|k\geq n,k\in\mathbb{Z}\}\enspace\enspace b_n=\sup\{x_k|k\geq n,k\in\mathbb{Z}\},\]由于\(a_n\)不减，\(b_n\)不增，亦即\[a_1\leq a_2\leq\cdots\leq a_n\leq\cdots\leq b_n\leq\cdots\leq b_2\leq b_1,\]由于单调有界数列收敛，所以\(\{a_n\}\)和\(\{b_n\}\)的极限存在，分别称之为数列\(\{x_n\}\)的\textbf{下极限}和\textbf{上极限}，记之为\[\varliminf\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}a_n\enspace\enspace\varlimsup\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}b_n.\]
+	
+	某些时候，我们也会见到\(\liminf\limits_{n\to\infty}x_n\)和\(\limsup\limits_{n\to\infty}x_n\)的写法，我们只需要清楚这仅仅是记号的不同而已。
+	\section{点集拓扑初步}
+	\begin{theorem}[Heine-Borel有限覆盖定理]
+		
+	\end{theorem}
+	
+	

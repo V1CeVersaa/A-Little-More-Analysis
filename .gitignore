@@ -1,0 +1,9 @@
+/.vscode
+
+*.aux
+*.idx
+*.log
+*.out
+*.gz
+*.thm
+*.toc
