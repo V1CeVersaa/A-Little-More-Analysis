@@ -16,6 +16,33 @@
 \section{第二类曲线积分}
 \section{第一类曲面积分}
 \section{第二类曲面积分}
+    \begin{definition}[第二类曲面积分]
+        设\(\mit\Sigma\)为\(\mathbb{R}^3\)中的可定向曲面，\(\varphi\)是与给定定向相容的参数表示：\[\varphi(u,v)=(x(u,v),y(u,v),z(u,v)),\enspace(u,v)\in D.\]
+        对于定义在\(\mit\Sigma\)上的连续向量值函数\(X=(P,Q,R)\)，我们定义\(X\)在\(\mit\Sigma\)上的第二类曲面积分为：\[\mit\Phi=\int_{D}\left[P\frac{\partial(y,z)}{\partial(u,v)}+Q\frac{\partial(z,x)}{\partial(u,v)}+R\frac{\partial(x,y)}{\partial(u,v)}\right]\dd u\dd v.\]
+        也记为:\[\mit\Phi=\int_{\mit\Sigma}P\dd y\wedge\dd z+Q\dd z\wedge\dd x+R\dd x\wedge\dd y.\]
+    \end{definition}
+    
+    第二类曲面积分的定义来自于下面的物理问题：空间中有流速为\(V=(P,Q,R)\)的流体，流体通过曲面\(\mit\Sigma\)的流量是多少？要规定流量，首先就要给曲面指定方向。我们规定曲面在某点的方向在这点的一个单位法向量的方向。指定了方向之后，我们利用微元法：任取\(\mit\Sigma\)的一个小片，其面积记为\(\dd\sigma\)，曲面的单位法向量为\(\vec{n}\)，则流体通过这个小片的流量\(\dd\mit\Phi\)为\(V\cdot\vec{n}\dd\sigma\).于是整个曲面的流量为
+    \begin{equation}
+        \mit\Phi=\int_{\mit\Sigma}V\cdot\vec{n}\dd\sigma=\int_{\mit\Sigma}V\cdot\dd\vec{\sigma}. \label{eq:第二类曲面积分:流量}
+    \end{equation}
+
+    记\(\dd\vec{\sigma}=(\dd y\wedge\dd z,\dd z\wedge\dd x,\dd x\wedge\dd y)\)，其中\(\dd y\wedge\dd z\)是有向面积元\(\dd\vec{\sigma}\)在\(yz\)平面的投影，\(\dd z\wedge\dd x\)是有向面积元\(\dd\vec{\sigma}\)在\(zx\)平面的投影，\(\dd x\wedge\dd y\)是有向面积元\(\dd\vec{\sigma}\)在\(xy\)平面的投影。于是上式可写为：
+    \begin{equation}
+        \mit\Phi=\int_{\mit\Sigma}V\cdot\vec{n}\dd\sigma=\int_{\mit\Sigma}V\cdot\dd\vec{\sigma}=\int_{\mit\Sigma}P\dd y\wedge\dd z+Q\dd z\wedge\dd x+R\dd x\wedge\dd y.\label{eq:第二类曲面积分:ver2}
+    \end{equation}
+
+    这其实就表明了第二类曲面积分可以转化成第一类曲面积分，并且给出了转换的方法。
+
+    另一方面，流量与曲面方向的选取有关，方向的变化可导致流量的数值差一个正负号。如果曲面上存在连续的单位法向量场，则称该曲面可定向，否则就称该曲面不可定向。本节涉及的曲面都是可定向的，其定向（方向）是指一个连续的单位法向量场\(\vec{n}\)。
+
+    为了计算式\eqref{eq:第二类曲面积分:流量}，我们先对曲面选取恰当的参数表示：设\(\varphi:D\to\mathbb{R}^3\)为\(\mit\Sigma\)的参数表示，其中\[\varphi(u,v)=(x(u,v),y(u,v),z(u,v)),\enspace(u,v)\in D.\]记\(N=\varphi_u\times\varphi_v\)，则：\[N=(y_uz_v-z_uy_v,z_ux_v-x_uz_v,x_uy_v-y_ux_v)=\left(\frac{\partial(y,z)}{\partial(u,v)}+\frac{\partial(z,x)}{\partial(u,v)}+\frac{\partial(x,y)}{\partial(u,v)}\right)\]
+    \(N\)为曲面的法向量。如果\(\dfrac{N}{\Vert N\Vert}=\vec{n}\)，则称\(\varphi\)是与给定定向相容的参数表示。我们总是选取与给定定向相容的参数表示。而从上节的讨论可知，曲面的面积元可写为\(\dd\sigma=\Vert N\Vert\dd u\dd v\)，于是有：
+    \begin{equation}
+        \mit\Phi = \int_{D}V\cdot N\dd u\dd v = \int_{D}\left[P\frac{\partial(y,z)}{\partial(u,v)}+Q\frac{\partial(z,x)}{\partial(u,v)}+R\frac{\partial(x,y)}{\partial(u,v)}\right]\dd u\dd v.\label{eq:第二类曲面积分:ver1}
+    \end{equation}
+
+    由此看出式\eqref{eq:第二类曲面积分:ver1}和式\eqref{eq:第二类曲面积分:ver2}是等价的。这就是第二类曲面积分的来源。
 
     值得注意的是，为了书写的简便，我们有时候也会将\(\dd x\wedge\dd y,\dd y\wedge\dd z\)和\(\dd z\wedge\dd x\)等记号简写为\(\dd x\dd y,\dd y\dd z\)和\(\dd z\dd x\).比如积分\(\displaystyle\int_{\mit\Sigma}f(x,y,z)\dd x\wedge\dd y\)就可以简写为\(\displaystyle\int_{\mit\Sigma}f(x,y,z)\dd x\dd y\).
     \begin{example}
@@ -24,15 +51,55 @@
 
 \section{Green公式、Gauss公式和Stokes公式}
     \subsection{Green公式}
+    \begin{theorem}[Green公式]
+        设\(\mit\Omega\)为\(\mathbb{R}^2\)上的有界区域，其边界由有限条\(C^1\)曲线组成，曲线的定向为诱导定向，如果\(P,Q\)为\(\mit\Omega\)上的连续可微函数，则\[\int_{\mit\Omega}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dd x\dd y=\int_{\partial\mit\Omega}P\dd x+Q\dd y.\]
+    \end{theorem}
     \begin{example}
         设\(\mit\Omega\)为包含原点的有界区域，其边界为\(C^1\)曲线，方向为诱导定向，计算积分\[I=\int_{\partial\mit\Omega}\frac{-y\dd x}{x^2+y^2}+\frac{x\dd y}{x^2+y^2}.\]
     \end{example}
+
     \subsection{Gauss公式}
     \begin{theorem}[Gauss公式]
-        
+        设\(\mit\Omega\)为\(\mathbb{R}^3\)中的有界区域，其边界由有限个\(C^1\)曲面组成，曲面的定向为诱导定向，如果\(P,Q,R\)为\(\mit\Omega\)上的连续可微函数，则\[\int_{\mit\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\dd x\dd y\dd z=\int_{\partial\mit\Omega}P\dd y\wedge\dd z+Q\dd z\wedge\dd x+R\dd x\wedge\dd y.\]
     \end{theorem}
     
-    将以函数\(P,Q,R\)为分量的向量场\(X=(P,Q,R)\)的散度\(\nabla\cdot X\)（或\(\mathrm{div}X\)）定义为\[\mathrm{div}X=\nabla\cdot X=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.\]
+    对于以函数\(P,Q,R\)为分量的\(C^1\)的向量场\(X=(P,Q,R)\)，其散度\(\nabla\cdot X\)（或\(\mathrm{div}X\)）定义为\[\mathrm{div}X=\nabla\cdot X=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.\]
     散度是将Del算符(\(\nabla\))点积一个向量场X，效果是将一个向量场转换成了一个标量场.利用散度，Gauss公式可以写为以下形式：\[\int_{\mit\Omega}\nabla\cdot X\dd x\dd y\dd z=\int_{\partial\mit\Omega}X\cdot\vec{n}\dd\sigma.\]
     其中\(\vec{n}\)是边界曲面的单位外法向量，上式也被称为散度定理。
+    \begin{example}[Green恒等式]
+        设
+    \end{example}
+
     \subsection{Stokes公式}
+
+    设\(\mit\Sigma\)为\(\mathbb{R}^3\)中的\(C^2\)的定向曲面，\(\mit\Omega\)为\(\mit\Sigma\)中的有界区域，其边界为\(C^1\)曲线，其由右手定则定义的诱导定向如下：边界在曲面上的外法向量与边界的切向量的外积得到的曲面的法向量与决定曲面定向的法向量同向。即如果用右手从曲线外法向到切向做旋转，则大拇指所指的方向为定向曲面的法向。
+    \begin{theorem}[Stokes公式]
+        设\(\mit\Sigma\)为\(\mathbb{R}^3\)中的\(C^2\)的定向曲面，\(\mit\Omega\)为\(\mit\Sigma\)中的有界区域，其边界赋以诱导定向，如果\(P,Q,R\)为\(\mit\Omega\)附近的连续可微函数，则
+        \begin{equation*}\begin{split}
+            \int_{\mit\Sigma}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\dd y\wedge\dd z+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\dd z\wedge\dd x+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dd x\wedge\dd y
+            \\=\int_{\partial\mit\Sigma}P\dd x+Q\dd y+R\dd z.
+        \end{split}\end{equation*}
+    \end{theorem}
+
+    \begin{proof}
+        我们只证明一个特殊情形：
+    \end{proof}
+    
+    设\(X=(P,Q,R)\)为\(C^1\)的向量场，其旋度场\(\nabla\times X\)（或\(\mathrm{rot}X\)）定义为\[\nabla\times X=\mathrm{rot}X=\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right).\]利用旋度，Stokes公式可以写为以下形式：\[\int_{\mit\Omega}\nabla\times X\cdot\vec{n}\dd\sigma=\int_{\partial\mit\Omega}X\cdot T\dd s.\]其中\(\vec{n}\)是曲面\(\mit\Omega\)的单位外法向量，\(T\)是曲线\(\partial\mit\Omega\)的单位切向量，\(\dd s\)是曲线\(\partial\mit\Omega\)的弧长参数。
+
+\section{余面积公式}
+    \begin{theorem}[余面积公式] \label{thm:多元积分:余面积公式}
+        设\(f:\mathbb{R}^n\to\mathbb{R}\)为\(C^1\)函数，且\(\Vert\nabla f\Vert\neq0\)，如果\(g\)为区域\(f^{-1}(\left[a,b\right])\)上的连续函数，则\[\int_{f^{-1}(\left[a,b\right])}g(x)\dd x_1\dd x_2\cdots\dd x_n=\int_{a}^{b}\dd t\int_{f^{-1}(t)}\frac{g}{\Vert\nabla f\Vert}\dd\sigma.\]
+    \end{theorem}
+
+    使用类似的推导方法，我们可以证明特殊情形的余面积公式，留作后面的习题。
+
+\section{习题}
+    \subsection{余面积公式}
+    \begin{enumerate}
+        \item 设\(f:\mathbb{R}^n\to\mathbb{R}\)为\(C^1\)函数，且\(\Vert\nabla f\Vert\neq0\)，\(\mit\Omega\)的含义与\autoref{thm:多元积分:余面积公式}的证明中的相同，证明：\[\nu(\mit\Omega)=\int_{a}^{b}\dd t\int_{f^{-1}(t)\cap\mit\Omega}\frac{1}{\Vert\nabla f\Vert}\dd\sigma.\]
+        
+        {\kaishu 提示：如果将\(g\)取为常值函数\(1\)，那么此题显然成立，但是请使用\autoref{thm:多元积分:余面积公式}的证明中的方法重新证明。}
+
+        \item 使用余面积公式计算积分\[I = \int_{\mit\Sigma}\left(\frac{x^2}{a^4}+\frac{y^2}{b^4}+\frac{z^2}{c^4}\right)^{-\frac{1}{2}}\dd\sigma,\]其中\(\mit\Sigma\)为椭球面\(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\)。
+    \end{enumerate}
