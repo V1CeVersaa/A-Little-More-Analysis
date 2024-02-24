@@ -1,1 +1,153 @@
-\chapter{基本场论}
+\chapter{微分形式与基本场论}
+    
+    本质上讲，流形就是曲线和曲面在更高维空间上的一般化，在本章，我们的目标是将
+    
+\section{线性代数基础}
+
+    \subsection{对偶空间}
+    \begin{definition}[对偶空间]
+        设\(V\)是一个\(n\)维实向量空间，\enspace\(\{e_1, e_2, \cdots, e_n\}\)是\(V\)的一组基，定义\[V^*=L(V, \mathbb{R})\]为\(V\)的{\heiti 对偶空间}，\enspace\(V^*\)中的元素被称为\(V\)上的{\heiti 余向量}（covector或1-covector）
+    \end{definition}
+    根据已有的线性代数知识，我们知道\(\dim V^*=\dim V = n\)，很容易能证得\(\{e^1, e^2, \cdots, e^n\}\)是\(V^*\)的一组基，其中
+    \[e^i(e_j) = \delta_{j}^{i}=\begin{cases}1 & i=j\\0 & i\neq j\end{cases}.\]\(\delta_{j}^{i}\)是克罗内克符号。
+
+    我们可以把这组对偶基理解为坐标的投影，对于\(v\in V\)，它的坐标是\(\{v^1, v^2, \cdots, v^n\}\)，那么\(e^j v = v^j\)。这就相当于使用\(e^j\)取出了\(v\)的第\(j\)个坐标。因而，我们可以使用对偶基将任意一个向量写成这样的形式:\[v = e^1(v)e_1+e^2(v)e_2+\cdots+e^n(v)e_n.\]
+    \subsection{置换}
+
+    \subsection{多重线性函数}
+    \(V\)是一个实线性空间，如果函数\(f:V^k\to\mathbb{R}\)对它\(k\)个系数中的每一个都是线性的，亦即满足\[f(\dots,\lambda v+\mu w,\dots)=\lambda f(\dots,v,\dots)+\mu f(\dots,w,\dots),\]对任意的\(\lambda,\mu\in\mathbb{R},v,w\in V\)，则称\(f\)是\(V\)上的一个\textbf{\textit{k}}{\heiti 重线性函数}，也叫做\(V\)上的\textbf{\textit{k-}}{\heiti 张量}，特别地，\enspace\(2\)重线性函数也叫做双线性函数，\enspace\(k\)叫做\(f\)的阶。\enspace\(V\)上的所有\(k\)-张量构成一个线性空间，记作\(L_k(V)\)。
+
+    \begin{definition}[对称与交替]
+        对\(V\)上的一个\(k\)重线性函数\(f\colon V^k\to\mathbb{R}\)来说，如果对任意的\(\sigma\in S_k\)，都有\[f(v_{\sigma(1)},\cdots,v_{\sigma(n)})=f(v_1,\cdots,v_n)\]则称\(f\)是{\heiti 对称}的；如果对任意的\(\sigma\in S_k\)，都有\[ f(v_{\sigma(1)},\cdots,v_{\sigma(n)})=(\sgn \sigma)f(v_1,\cdots,v_n)\]则称\(f\)是{\heiti 交替}的。
+    \end{definition}
+
+    像我们熟悉的内积\(\langle,\rangle\)是对称的二重线性函数;行列式\(\det(v_1,\cdots,v_n)\)是交替的\(n\)重线性函数，也叫\textbf{\textit{k}}{\heiti 阶余向量}。我们对于交替的多重线性函数尤其感兴趣，将所有线性空间\(V\)上的\(k\)重交替线性函数的集合记为\(A_k(V)\)。特别地，\enspace\(k=0\)时，我们定义\(0\)阶交替线性函数为常数，这样\(A_0(V)\)就是线性空间\(\mathbb{R}\)，而且\(A_1(V) = L_1(V) = V^*\)。
+    
+
+    设\(f\in L_k(V)\)，\enspace\(\sigma\in S_k\)，置换\(\sigma\)对\(f\)的{\heiti 作用}得到一个新的\(k\)重线性函数，定义为\[(\sigma f)(v_1,\dots,v_k) = f(v_{\sigma(1)},\dots,v_{\sigma(k)}).\]
+    这样，\enspace\(f\)是对称的当且仅当对任意的\(\sigma\in S_k\)，\enspace\(\sigma f=f\)，\enspace\(f\)是交替的当且仅当对任意的\(\sigma\in S_k\)，\enspace\(\sigma f=(\sgn \sigma)f\)。
+
+    我们可以把置换对线性函数的作用理解为改变参数的位置，那么先后交换两次参数的位置和一步到位交换参数的位置的效果是相同的：
+    \begin{equation*}
+        \begin{split}
+            \tau(\sigma f)(v_1,\dots,v_k) &= (\sigma f)(v_{\tau(1)},\dots,v_{\tau(k)})\\
+            &= f(v_{\tau(\sigma(1))},\dots,v_{\tau(\sigma(k))}) = f(v_{(\tau\sigma)(1)},\dots,v_{(\tau\sigma)(k)})\\
+            &= (\tau\sigma)f(v_1,\dots,v_k).
+        \end{split}
+    \end{equation*}
+    上面的证明只需要注意好置换对应下标的变化就好了。所以置换对线性函数的作用满足结合律，即对任意的\(\sigma, \tau\in S_k\)，以及\(V\)上的\(k\)重线性函数\(f\)，都满足\[(\sigma(\tau f)) = ((\sigma\tau)f).\]
+
+    更一般地来说，我们可以定义群对集合的作用：设\(G\)是一个群，\(X\)是一个集合，\enspace\(G\)对\(X\)的{\heiti 左作用}是一个映射：\[G\times X\to X,\enspace(\sigma,x)\mapsto\sigma\cdot x.\]
+    这个映射满足结合律和单位元的性质，即对任意的\(\sigma, \tau\in G\)和\(x\in X\)，\enspace$e$是\(G\)中的单位元：\[(\sigma\tau)\cdot x = \sigma\cdot(\tau\cdot x),\enspace e\cdot x = x.\]
+    
+    对于给定的\(x\in X\)，它的{\heiti 轨道}是所有形如\(\sigma\cdot x\)的元素构成的集合：\(Gx\coloneqq\{\sigma\cdot x\mid\sigma\in G\}\).在这些术语下，我们其实定义了置换群\(S_k\)作用在线性空间\(V\)上的\(k\)重线性函数的空间\(L_k(V)\)上的左作用。值得注意的是，\enspace\(k\)重线性函数的空间\(L_k(V)\)上的左作用是线性的，我们留作习题。类似地，我们可以定义{\heiti 右作用}，在此不多赘述。
+
+    任给一个\(k\)重线性函数\(f\in L_k(V)\)，我们可以利用它生成一个对称的\(k\)重线性函数\(Sf\)和一个交替的\(k\)重线性函数\(Af\)，它们分别定义为\[(Sf)(v_1,\dots,v_n) =\sum_{\sigma\in S_k}f(v_{\sigma(1)},\dots,v_{\sigma(k)}),\]和\[(Af)(v_1,\dots,v_n) = \sum_{\sigma\in S_k}(\sgn\sigma)f(v_{\sigma(1)},\dots,v_{\sigma(k)}).\] 
+    或者使用更加精简的术语：\[Sf = \sum_{\sigma\in S_k}\sigma f,\enspace Af = \sum_{\sigma\in S_k}(\sgn\sigma)\sigma f.\]
+
+    可以证明\(Sf\)和\(Af\)确实分别是对称和交替的，我们只对后者给出证明：对任意的\(\tau\in S_k\)，当\(\sigma\)遍历\(S_k\)时，\(\tau\sigma\)也遍历\(S_k\)，所以有：
+    \begin{equation*}
+        \begin{split}
+            \tau(Af) &= \sum_{\sigma\in S_k}(\sgn\sigma)\tau(\sigma f)\\
+            &= \sum_{\sigma\in S_k}(\sgn\sigma)(\tau\sigma)f = \sum_{\sigma\in S_k}(\sgn\sigma)(\sgn\tau)^2(\tau\sigma)f\\
+            &= (\sgn\tau)\sum_{\sigma\in S_k}(\sgn\sigma\tau)(\tau\sigma)f\\
+            &= (\sgn\tau)Af.
+        \end{split}
+    \end{equation*}
+    这样就给出了证明，对于\(Sf\)的证明就更容易了，留作习题。
+
+    \subsection{张量积与楔积}
+    
+    \begin{definition}[张量积]
+        \(f\)和\(g\)分别是线性空间\(V\)上的\(k\)重和\(l\)重线性函数，它们的{\heiti 张量积}\(f\otimes g\)是\(V\)上的\(k+l\)重线性函数，定义为\[(f\otimes g)(v_1,\dots,v_k,v_{k+1},\dots,v_{k+l})=f(v_1,\dots,v_k)g(v_{k+1},\dots,v_{k+l}).\]
+    \end{definition}
+
+    对于张量积，一般不会谈它的交换律，但是张量积满足结合律，即对线性空间\(V\)上的任意的多重线性函数\(f,g,h\)，都有\[(f\otimes g)\otimes h = f\otimes(g\otimes h).\]
+    不失一般性，我们假设\(f,g,h\)分别是\(k,l,m\)重线性函数，那么对于任意的\(v_1,\dots,v_{k+l+m}\in V\)，都有：
+    \begin{equation*}
+        \begin{split}
+            ((f\otimes g)\otimes h)(v_1,\dots,v_{k+l+m}) &= (f\otimes g)(v_1,\dots,v_k,v_{k+1},\dots,v_{k+l})h(v_{k+l+1},\dots,v_{k+l+m})\\
+            &= f(v_1,\dots,v_k)g(v_{k+1},\dots,v_{k+l})h(v_{k+l+1},\dots,v_{k+l+m})\\
+            &= f(v_1,\dots,v_k)(g\otimes h)(v_{k+1},\dots,v_{k+l+m})\\
+            &= (f\otimes(g\otimes h))(v_1,\dots,v_{k+l+m}).
+        \end{split}
+    \end{equation*}
+
+    \begin{example}[张量积视角下的双线性函数]
+        令\(e_1,\dots,e_n\)是\(V\)的一组基，其对偶基为\(e^1,\dots,e^n\)，我们研究\(V\)上的双线性函数\(\langle,\rangle\)。对于任意的\(v,w\in V\)，\enspace\(v = \sum e^i(v)e_i,\enspace w = \sum e^i(w)e_i\)，记\(g_{ij} = \langle e_i,e_j\rangle\)，那么我们可以将双线性函数\(\langle,\rangle\)以张量积的形式表示：\[\langle v, w\rangle  = \sum_{1\leq i,j\leq n} e^i(v)e^j(w)\langle e_i,e_j\rangle = \sum_{1\leq i,j\leq n} g_{ij}(e^i\otimes e^j)(v,w).\]
+        这其实表明双线性函数的取值其实完全由其在基上的取值决定。
+    \end{example}
+
+    如果线性空间\(V\)上的多重线性函数\(f,g\)都是交替的，它们的张量积\(f\otimes g\)的交替性并不是良好定义的，这就引导我们定义一种形式的积，让它具有交替性，这就引出了下面的{\heiti 楔积}的概念。
+
+    \begin{definition}[楔积]
+        
+    \end{definition}
+    
+    楔积定义中的系数\(\dfrac{1}{k!l!}\)是为了弥补求和中的重复：
+
+    另外一种避免求和中的冗余的方法是对求和的方式加以限制：如果\(\sigma(1,\dots,\sigma(k))\)和\(\sigma(k+1),\dots,\sigma(k+l)\)都是递增的，亦即\[\sigma(1)<\cdots<\sigma(k),\enspace\sigma(k+1)<\cdots<\sigma(k+l),\]则称置换\(\sigma\in S_{k+l}\)是一个\((k,l)\)-{\heiti shuffle}，这样楔积的定义就可以重写为：\[(f\wedge g)(v_1,\dots,v_{k+l}) = \sum_{(k,l)-\text{shuffle }\sigma}(\sgn\sigma)f(v_{\sigma(1)},\dots,v_{\sigma(k)})g(v_{\sigma(k+1)},\dots,v_{\sigma(k+l)}).\]
+    这样定义的楔积只需要对\(C^{k}_{k+l}\)个置换求和，而不是对\(C^{k+l}!\)个置换求和，就避免了冗余。
+
+    楔积满足斜交换律和结合律，但是这两个性质的证明都不简单，我们先证明一个引理：
+
+    \begin{lemma}
+        如果\(f,g\)分别是线性空间\(V\)上的\(k\)重和\(l\)重线性函数，那么:\[A(A(f)\otimes g) = k!A(f\otimes g),\enspace A(f\otimes A(g)) = l!A(f\otimes g).\]
+    \end{lemma}
+
+    \begin{theorem}[楔积的斜交换律与结合律]
+        设\(f,g,h\)分别是线性空间\(V\)上的\(k,l,m\)重线性函数，那么有：
+        \[f\wedge g = (-1)^{kl}g\wedge f,\enspace(f\wedge g)\wedge h = f\wedge(g\wedge h)\]
+    \end{theorem}
+    
+    在上述证明中，我们发现了:\[f\wedge g\wedge h = \frac{1}{k!l!m!}A(f\otimes g\otimes h).\]
+    我们可以将楔积推广到任意数目的参数上：如果\(f_i\in A_{d_i}(V)\),那么\[f_1\wedge\cdots\wedge f_k = \frac{1}{d_1!\cdots d_k!}A(f_1\otimes\cdots\otimes f_k).\]
+
+    \subsection{副产品：行列式}
+    
+    其实就是练习中的3.8
+
+    \subsection{外代数}
+
+    \begin{definition}[代数]
+        如果一个线性空间\(A\)满足下面条件:
+    \end{definition}
+    
+    \begin{definition}[外代数]
+        对于有限维线性空间\(V\)，若\(\dim V = n\)
+    \end{definition}
+
+    外代数其实是一个斜交换的分次代数（挖坑）
+
+    \(A_*(V)\)作为一个线性空间，我们应该了解它的最基本结构：维数和基。而我们只需要研究\(A_k(V)\)就可以了。我们首先引入下面的记号：
+
+    \begin{lemma}
+        
+    \end{lemma}
+
+    \begin{theorem}
+        \(k\)重交替线性函数\(\alpha^I\)，\enspace\(I=(i_1<\cdots i_k)\)，构成了\(A_k(V)\)的一组基。
+    \end{theorem}
+
+    这个定理有两个直接推论：
+
+    维数
+
+    如果\(k>\dim V\)，那么\(A_k(V) = \{0\}\)。
+
+    赫尔曼·格拉斯曼在十九世纪提出了外代数的概念，他穷极一生，建立起了以外代数为基础的大厦，将向量值的微积分从\(\mathbb{R}^3\)推广到了\(\mathbb{R}^n\)。 然而，格拉斯曼的成果在他生前并未得到应有的认可与重视，事实上，由于当时的领军人物莫比乌斯与库尔默并不能理解他的工作，格拉斯曼的论文被拒，更无法得到在大学的职位。直到十九世纪与二十世纪之交，外代数的终于在微分几何大师嘉当的手中大放光芒，成为了微分形式的代数基础。
+
+    
+    \section{欧氏空间的微分形式}
+    我们首先回顾一下梯度场和全微分的概念：设\(D \subset \mathbb{R}^n\)是一个开集，\enspace\(f: D \to \mathbb{R}\)为多元函数，若\(f\)在\(x^0\)处可微，则\(f\)在\(x^0\)处的梯度\(\nabla f(x^0)\)定义为\[\nabla f(x^0) = \left(\frac{\partial f}{\partial x_1}(x^0), \frac{\partial f}{\partial x_2}(x^0), \cdots, \frac{\partial f}{\partial x_n}(x^0)\right).\]
+    并且，\enspace\(f\)在\(x^0\)处的全微分\(\dd f(x^0)\)可以用梯度表示为\[\dd f(x^0) : \mathbb{R}^n\to\mathbb{R},\enspace u\mapsto\nabla f(x^0)\cdot u.\]
+    我们完全可以使用线性代数中的对偶来解释：
+
+
+\section{习题}
+    
+    \subsection{线性代数基础}
+    \begin{enumerate}
+        \item 证明：\(k\)重线性函数的空间\(L_k(V)\)上的左作用是线性的。亦即对于任意的\(f,g\in L_k(V)\)，\enspace\(\sigma\in S_k\)和\(\lambda\in\mathbb{R}\)，都有:\[\sigma(f+\lambda g) = \sigma f+\lambda\sigma g.\]
+        \item 若\(f\)是线性空间\(V\)上的\(k\)重交替线性函数，证明：\[Af = (k!)f.\]
+    \end{enumerate}

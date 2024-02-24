@@ -75,7 +75,7 @@ Dirichlet判别法和Abel判别法仅仅是Abel引理的直接推论，而Leibni
 \end{theorem}
 % 新的小节
 \subsection{无穷乘积}
-\begin{definition}[无穷乘积]\label{def:series:无穷乘积}
+\begin{definition}[无穷乘积]\label{def:数项级数:无穷乘积}
     
 \end{definition}
 
@@ -85,14 +85,34 @@ Dirichlet判别法和Abel判别法仅仅是Abel引理的直接推论，而Leibni
 \begin{definition}[Cauchy乘积]
     
 \end{definition}
-\begin{theorem}[Cauchy]
+\begin{theorem}[Cauchy]\label{thm:数项级数:Cauchy定理}
     如果\(\sum\limits_{n=0}^{\infty}a_n\)和\(\sum\limits_{n=0}^{\infty}b_n\)都绝对收敛，则他们的乘积级数也绝对收敛，且\[\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]
 \end{theorem}
 
 如果将Cauchy定理的条件减弱，这时候下面的结果依然成立。
-\begin{theorem}[Mertens]
+\begin{theorem}[Mertens]\label{thm:数项级数:Mertens定理}
     如果\(\sum\limits_{n=0}^{\infty}a_n\)和\(\sum\limits_{n=0}^{\infty}b_n\)都收敛，且其中至少一个绝对收敛，则他们的乘积级数也收敛。\[\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]
 \end{theorem}
+
+衡量一个定理的强弱，可以从两方面来看:一般来说，定理的条件越弱，定理越强；结果越强，定理显然也越强，\enspace \autoref{thm:数项级数:Mertens定理}的条件已经足够弱了,我们只需要其中一个级数绝对收敛，就可以得到其乘积级数也收敛，并且这边绝对收敛的条件不能去掉，比如取\(a_n\)和\(b_n\)均为交错级数\((-1)^{n-1}\dfrac{1}{\sqrt{n}}\)，那么所得到的乘积级数就是发散的。但是，当我们去掉绝对收敛的条件，并且加上其乘积级数收敛的条件，我们就能知道其值一定等于两个级数和的乘积，这就是下面的{\heiti \textbf{Abel}定理}。
+
+\begin{theorem}[Abel定理]
+    设级数\(\sum\limits_{n=0}^{\infty}a_n\),\enspace \(\sum\limits_{n=0}^{\infty}b_n\)收敛，以及他们的乘积\(\sum\limits_{n=0}^{\infty}c_n\)也收敛，那么\[\sum_{n=0}^{\infty}c_n = \left(\sum_{n = 0}^{\infty}a_n\right)\left(\sum_{n = 0}^{\infty}b_n\right).\]
+\end{theorem}
+
+证明上面的定理，我们需要下面的\textbf{Abel}{\heiti 引理}，Abel引理为我们提供了一种对发散级数进行求和的想法，我们在下一节中就会讲到。
+
+\begin{lemma}[Abel引理]\label{lem:数项级数:Abel引理}
+    如果级数\(\sum\limits_{n=0}^{\infty}a_n\)收敛，那么\[\lim_{x\to 1^-}\sum_{n=0}^{\infty}a_nx^n = \sum_{n=0}^{\infty}a_n.\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+有了\autoref{lem:数项级数:Abel引理}，\enspace Abel定理就几乎显然了：对\(x\in(0,1)\)，级数\(\sum\limits_{n=0}^{\infty}a_nx^n\)和\(\sum\limits_{n=0}^{\infty}b_nx^n\)都是绝对收敛的，他们的乘积级数\(\sum\limits_{n=0}^{\infty}c_nx^n\)也绝对收敛，根据\autoref{thm:数项级数:Cauchy定理}，有\[\sum_{n=0}^{\infty}c_nx^n=\left(\sum_{n=0}^{\infty}a_nx^n\right)\left(\sum_{n=0}^{\infty}a_nx^n\right).\]
+令\(x\to1^-\)，根据\autoref{lem:数项级数:Abel引理}，我们就得到了Abel定理。
+
 % 新的一节
 \section{对数项级数的进一步讨论}
 \subsection{交换求和顺序：级数的重排}

@@ -1,1 +1,8 @@
 \chapter{多元函数微分学}
+    \   section{方向导数和微分}
+
+    研究多元函数的常用办法是对函数进行局部的线性化，而在某处的最佳线性函数就是我们研究的对象，这就是下面微分的定义。
+    \begin{definition}[微分]
+        设\(D\in \mathbb{R}^n\)为开集，\enspace\(f:D\to\mathbb{R}\)为一个多元函数，\enspace\(x^0\in D\)，如果存在一个线性映射\(L:\mathbb{R}^n\to\mathbb{R}\)，使得在\(x^0\)的附近成立：\[f(x)-f(x^0) = L(x-x^0)+o(\Vert x-x^0\Vert)\enspace(x\to x^0),\]
+        则称函数\(f\)在\(x^0\)处可微，线性映射\(L\)称为函数\(f\)在\(x^0\)处的微分，记为\(\dd f(x^0)\)。
+    \end{definition}
