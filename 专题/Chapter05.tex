@@ -167,6 +167,114 @@
     \end{theorem}
 % 新的一节
 \section{函数项级数}
+
+设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果对于每一个\(x\in I\)，数列\(\{g_n(x)\}\)均收敛，其极限记为\(g(x)\)，那么我们称\(\{g_n(x)\}\)收敛于\(g(x)\)，注意到这种形式的定义其实是通过{\heiti 逐点定义}得到的，我们称这个函数列{\heiti 点态收敛}于函数\(g(x)\)，记为\(\lim\limits_{n\to \infty}g_n=g\)或者\(g_n\to g\enspace(n\to\infty)\)。
+
+点态收敛其实很弱，甚至连保证连续函数列的极限是连续函数都做不到：考虑函数列\(\{x^n\}\)，任给\(x\in(0,1)\)，都有\(\lim\limits_{n\to \infty}x^n = 0\)，但是当\(x=1\)的时候，\(x^n=1\)，所以其收敛于的函数\(g\)不连续。所以我们需要更强一些的收敛方式，这就是{\heiti 一致收敛}。
+
+\begin{definition}[一致收敛]
+    设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果任给\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(n>N\)，\(x\in I\)时，有\(\vert g_n(x)-g(x)\vert<\varepsilon\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 一致收敛}于函数\(g(x)\)，记为\(g_n(x)\rightrightarrows g(x)\)。
+\end{definition}
+
+显然，如果函数列\(\{g_n(x)\}\)在\(I\)上一致收敛于函数\(g(x)\)，那么它在\(I\)上点态收敛于\(g(x)\)。并且一致收敛还可以改写为：任给\(\varepsilon >0\)，存在\(N\)，当\(n>N\)时，\[\sup_{x\in I}\vert g_n(x)-g(x)\vert<\varepsilon\text{，亦即}\lim_{n\to\infty}\sup_{x\in I}\vert g_{n}(x)-g(x)\vert = 0.\]
+
+一致收敛保持连续性，这就是下面的定理：
+\begin{theorem}
+    设\(\{g_n(x)\}\)在区间\(I\)上一致收敛于函数\(g(x)\)，如果每一个函数\(g_{n}(x)\)都是连续函数，则\(g(x)\)也是连续函数
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+上面的定理其实保证了求极限次序的可交换性，对于共用一个相同的连续点的函数列，在这个连续点上，先对这个点取极限和对函数列取极限的结果是相同的。但是这个连续的条件真的是必须的吗？我们证明一个一般一点的结论，在这个结论中，我们甚至不需要连续性就可以保证取极限顺序的可交换性。
+
+\begin{theorem}
+    设\(\{g_n(x)\}\)在\(x_0\)的一个空心邻域中一致收敛与函数\(g\)，如果\(g_n\)在\(x_{0}\)的函数极限为\(a_n\)，则数列极限\(\lim\limits_{n\to\infty}a_n\)和函数极限\(\lim\limits_{x\to x_0}g(x)\)都存在，并且两个极限相等：\[\lim_{x\to x_0}\lim_{n\to +\infty}g_{n}(x) = \lim_{n\to +\infty}\lim_{x\to x_0}g_{n}(x)\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+更多地，我们还有{\heiti 内闭一致收敛}的定义.
+\begin{definition}[内闭一致收敛]
+    若对于任意给定的闭区间\([a,b]\subset I\)，函数列\(\{g_n(x)\}\)在\([a,b]\)上一致收敛于函数\(g(x)\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 内闭一致收敛}于函数\(g(x)\)。
+\end{definition}
+
+在\(D\)上一致收敛的函数列一定在\(D\)上内闭一致收敛，但是其逆命题不成立。
+
+\subsection{函数列一致收敛的判别}
+
+    \begin{theorem}
+        设函数列\(\{S_n(x)\}\)在集合\(D\)上点态收敛于函数\(S(x)\)，定义\(S_n(x)\)与\(S(x)\)的距离为\[d(S_n,S) =\sup_{x\in D}\lvert S_n(x) - S(x)\rvert.\]
+        则\(\{S_n(x)\}\)在\(D\)上一致收敛于\(S(x)\)当且仅当\(\lim\limits_{n\to\infty}d(S_n,S) = 0\).
+    \end{theorem}
+    \begin{proof}
+        {\heiti 充分性}：若\(\lim\limits_{n\to\infty}d(S_n,S) = 0\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，有\[d(S_n,S) = \sup_{x\in D}\lvert S_n(x) - S(x)\rvert<\varepsilon.\]这就是一致收敛的定义。
+
+        \noindent{\heiti 必要性}：若\(\{S_n(x)\}\)在\(D\)上一致收敛于\(S(x)\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，任给\(x\in D\)，都有\[\lvert S_n(x)-S(x)\rvert<\varepsilon.\]
+        亦即\[d(S_n,S) =\sup_{x\in D}\lvert S_n(x) - S(x)\rvert<\varepsilon.\]
+    \end{proof}
+
+    \begin{theorem}
+        设函数列\(\{S_n(x)\}\)在集合\(D\)上点态收敛于函数\(S(x)\)，则\(\{S_n(x)\}\)在集合\(D\)上一致收敛的充分必要条件是：对于任意数列\(\{x_n\}\)，\enspace\(x_n\in D\)，成立\[\lim_{x\to \infty}(S_n(x)-S(x))=0.\]
+    \end{theorem}
+
+
+    \begin{theorem}[Cauchy准则]
+        定义在\(I\)上的函数列\(\{g_n\}\)一致收敛当且仅当对任给的\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(m>n>N\)，\enspace\(x\in I\)时，有\(\vert g_m(x)-g_n(x)\vert<\varepsilon.\)    
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+    \begin{theorem}[Dini定理]
+        设\(\{g_n\}\)是\([a,b]\)上的一列非负连续函数，且对每一个\(x\in[a,b]\)，\enspace\(\{g_n(x)\}\)关于\(n\)单调递减趋于\(0\)，则函数列\(\{g_n\}\)一致收敛于\(0\)。
+    \end{theorem}
+
+
+\subsection{一致收敛级数的判别}
+
+    现在，设\(\{f_n(x)\}\)为一列函数，形如\(\sum\limits_{n=1}^{\infty}f_n(x)\)的形式和称为函数项级数，如果其部分和函数\(S_n(x) = \sum\limits_{k=1}^{n}f_k(x)\)在某点\(x\)处收敛，那么称这个函数项级数在该点收敛，这个点就是该级数的一个收敛点，所有收敛点的集合就是这个函数项级数的一个收敛域。在相应的收敛域上，\(S(x) = \sum\limits_{n=1}^{\infty}f_n(x)\)其实就定义了一个的{\heiti 和函数}。同理可以定义一致收敛。对于函数项级数，下面的性质与判别法与上面的是一致的.
+    \begin{enumerate}
+        \item 如果\(f_n\)都为连续函数，并且\(\sum\limits_{n=1}^{\infty}f_n(x)\)一致收敛于\(S(x)\)，则\(S(x)\)也是连续函数；
+        \item \(\sum\limits_{n=1}^{\infty}f_n(x)\)一致收敛当且仅当对于任给的\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(m>n>N\)，\enspace\(x\in I\)时，有\[\vert f_{n+1}+f_{n+2}+\cdots+f_{m}(x)\vert<\varepsilon.\]
+    \end{enumerate}
+
+    \begin{theorem}[Weierrstrass判别法]
+        设函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)的每一项\(f_n(x)\)都满足\[\lvert f_n(x)\rvert\leq a_n,\enspace x\in D.\]
+        并且数项级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{theorem}[Abel判别法]
+        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致有界\[\lvert a_n(x)\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致收敛，则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{theorem}[Dirichlet判别法]
+        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致收敛于\(0\)，同时函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致有界\[\lvert \sum_{n=1}^{n}\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{theorem}
+        设\(f_n(x)\)在区间\(I\)上连续且非负，如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上收敛于连续函数\(S(x)\)，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上一致收敛于\(S(x)\)。
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+
+\subsubsection{一致收敛级数的性质}
+
+函数项级数存在三个很自然的基本问题：首先我们知道，对于有限个函数的和，我们可以交换求极限与求和的顺序、求导与求和的顺序、积分与求和的顺序，那么对于无穷个函数的和，我们能否交换次序呢？在什么情况下可以交换次序呢？仅仅有点态收敛的条件显然是不够的。
+
+
+
 \section{幂级数}
 \section{求和与求导、积分的可交换性}
 \section{习题：数项级数}

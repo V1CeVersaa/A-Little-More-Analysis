@@ -95,14 +95,14 @@
     \begin{example}[上一个例子的加强]
         
     \end{example}
-    \begin{example}[Riemann引理]
+    \begin{theorem}[Riemann引理]
         设$f$是周期函数，周期为$T$，如果$f$在闭区间$\left[0,T\right]$中可积，则有以下陈述：
         \begin{enumerate}
             \item $f$在任何闭区间中均可积，并且在任何长度为$T$的区间中的积分都相等.
             \item 思考此式的含义并证明$$\lim\limits_{\lambda\rightarrow\infty}\frac{1}{\lambda}\int_{0}^{\lambda}f(x)dx=\frac{1}{T}\int_{0}^{T}f(x)dx.$$
             \item $g\in\bm{R}\left[a,b\right]$，证明$$\lim\limits_{\lambda\rightarrow\infty}\int_{a}^{b}f(\lambda x)g(x)dx=\frac{1}{T}\int_{0}^{T}f(x)dx\int_{a}^{b}g(x)dx.$$
         \end{enumerate}
-    \end{example}
+    \end{theorem}
     % 新的一节
     \section{积分中值定理}
     \begin{theorem}[积分第一中值定理]
@@ -122,16 +122,20 @@
 
     % 新的一节
     \section{Stieltjes积分}
+    % 新的一节
+    \section{重要积分的计算}
+    \subsection{Euler积分}
+    本小节计算Euler积分：$$\int_{0}^{\pi/2}\ln\sin x\dd x.$$
+    \subsection{Euler-Poisson积分}
+    本小节计算Euler-Poisson积分：$$\int_{0}^{+\infty}e^{-x^2}\dd x.$$
     % 习题
     \section{练习}
-    下面是一些重要积分的计算。
-    \begin{exercise}
-        \begin{enumerate}
-            \item 计算Euler积分：$$\int_{0}^{\pi/2}\ln\sin xdx.$$
-            \item 计算Euler-Poisson积分：$$\int_{0}^{+\infty}e^{-x^2}dx.$$
-            \item 
-        \end{enumerate}
-    \end{exercise}
+    \subsection{基本概念与计算}
+    \begin{enumerate}
+        \item 
+        \item 
+        \item 
+    \end{enumerate}
     下面是一些对积分求极限的习题。
     \begin{exercise}
         \begin{enumerate}
@@ -157,3 +161,7 @@
             \item 设$f\in C^1\left[0,a\right]$，$f(0)=0$，证明：\[\int_{0}^{a}\vert  f(x)f'(x)\vert\mathrm{d}x\leq\frac{a}{2}\int_{0}^{a}(f'(x))^2\mathrm{d}x.\]
         \end{enumerate}
     \end{exercise}
+    \subsection{积分的逼近性质}
+    \begin{enumerate}
+        \item 设\(f\)在\([0,+\infty)\)上的无穷积分绝对收敛，证明：\[\lim_{\lambda\to+\infty}\int_{0}^{+\infty}f(x)\sin\lambda x\dd x=0\]
+    \end{enumerate}
