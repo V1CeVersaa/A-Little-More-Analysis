@@ -4,27 +4,27 @@
     \subsection{一般的级数}
     \begin{definition}[级数]
 
-        设\(a_1,a_2,\cdots,a_n,\cdots\)是无穷多可列个实数，我们称形式和\[\sum_{k=1}^{\infty}a_k=a_1+a_2+\cdots+a_n+\cdots\]为无穷级数，称\(a_n\)为级数的通项或一般项，\enspace\(S_n=\sum\limits_{k=1}^{n}a_k\)为级数的第\(n\)个部分和。
-        如果部分和\(S_n\)的极限存在且收敛于有限数\(S\)，则称级数\(\sum\limits_{k=1}^{\infty}a_k\)收敛，记作\(\sum\limits_{k=1}^{\infty}a_k=S\)，且称它的和为\(S\)，否则称级数\(\sum\limits_{k=1}^{\infty}a_k\)发散。
+        设\(a_1,a_2,\cdots,a_n,\cdots\)是无穷多可列个实数，我们称形式和\[\sum_{k=1}^{\infty}a_k=a_1+a_2+\cdots+a_n+\cdots\]为无穷级数，称\(a_n\)为级数的通项或一般项，\enspace\(S_n=\sum\limits_{k=1}^{n}a_k\)为级数的第\(n\)个部分和.
+        如果部分和\(S_n\)的极限存在且收敛于有限数\(S\)，则称级数\(\sum\limits_{k=1}^{\infty}a_k\)收敛，记作\(\sum\limits_{k=1}^{\infty}a_k=S\)，且称它的和为\(S\)，否则称级数\(\sum\limits_{k=1}^{\infty}a_k\)发散.
     \end{definition}
 
-    需要注意的是，级数的敛散性和其有限项的值无关。从某种意义上而言，级数的敛散性本质上就是数列的敛散性，所以根据数列极限的性质还可以得到：
+    需要注意的是，级数的敛散性和其有限项的值无关.从某种意义上而言，级数的敛散性本质上就是数列的敛散性，所以根据数列极限的性质还可以得到：
     \begin{property}
         \begin{enumerate}
-            \item 级数收敛的必要条件：如果级数\(\sum\limits_{n=1}^{\infty}\)收敛，那么其通项满足\(\lim\limits_{n\to\infty}a_n=0\)。
-            \item 级数收敛的充要条件（Cauchy准则）：级数\(\sum\limits_{n=1}^{\infty}\)收敛\(\iff\)任给\(\epsilon>0\)，存在\(N=N(\epsilon)\)，当\(m>n>N\)时，有\(\vert a_{n+1}+\cdots+a_m\vert=\left|\sum\limits_{k=n+1}^{m}a_k\right|<\epsilon\)。
+            \item 级数收敛的必要条件：如果级数\(\sum\limits_{n=1}^{\infty}\)收敛，那么其通项满足\(\lim\limits_{n\to\infty}a_n=0\).
+            \item 级数收敛的充要条件（Cauchy准则）：级数\(\sum\limits_{n=1}^{\infty}\)收敛\(\iff\)任给\(\epsilon>0\)，存在\(N=N(\epsilon)\)，当\(m>n>N\)时，有\(\vert a_{n+1}+\cdots+a_m\vert=\left|\sum\limits_{k=n+1}^{m}a_k\right|<\epsilon\).
             \item （线性性）设级数\(\sum\limits_{n=1}^{\infty}a_n\)和\(\sum\limits_{n=1}^{\infty}b_n\)都收敛，\(\lambda,\mu\in\mathbb{R}\)，则级数\(\sum\limits_{n=1}^{\infty}(\lambda a_n+\mu b_n)\)也收敛，且\[\sum_{n=1}^{\infty}(\lambda a_n+\mu b_n)=\lambda\sum_{n=1}^{\infty}a_n+\mu\sum_{n=1}^{\infty}b_n.\]
         \end{enumerate}
     \end{property}
 
     回忆上一章利用黎曼和解决的很多问题，我们似乎可以把无限和与积分联系起来，下面的定理就将级数求和与广义积分联系了起来:
     \begin{lemma}
-        设\(\{a_n\}\)是一列实数，在\([1,+\infty)\)中定义函数\(a(x)\)如下：设\(k\geq1\)，当\(x\in[k,k+1)\)时，\(a(x)=a_k\)，则级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛当且仅当无穷积分\(\displaystyle\int_{1}^{+\infty}a(x)\mathrm{d}x\)收敛，且收敛的时候级数的和等于无穷积分的值。
+        设\(\{a_n\}\)是一列实数，在\([1,+\infty)\)中定义函数\(a(x)\)如下：设\(k\geq1\)，当\(x\in[k,k+1)\)时，\(a(x)=a_k\)，则级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛当且仅当无穷积分\(\displaystyle\int_{1}^{+\infty}a(x)\mathrm{d}x\)收敛，且收敛的时候级数的和等于无穷积分的值.
     \end{lemma}\
 
-    利用上面的引理，我们可以很轻松地把广义积分敛散性的判别法搬到级数上来，对于这种方法，我们不赘述证明，下面内容会按照传统的方式给出证明。
+    利用上面的引理，我们可以很轻松地把广义积分敛散性的判别法搬到级数上来，对于这种方法，我们不赘述证明，下面内容会按照传统的方式给出证明.
 
-    对于一般的级数，下面的Dirichlet判别法和Abel判别法是核心。其证明的关键在于数列的\textbf{Abel变换}和\textbf{Abel引理}：
+    对于一般的级数，下面的Dirichlet判别法和Abel判别法是核心.其证明的关键在于数列的\textbf{Abel变换}和\textbf{Abel引理}：
     \begin{lemma}
         \begin{enumerate}
             \item （Abel变换）设\(\{a_n\},\{b_n\}\)是两列实数，\(B_i=\sum\limits_{k=1}^{i}b_k\)，则\[\sum_{i=1}^{n}a_ib_i=\sum_{i=1}^{n-1}(a_i-a_{i+1})B_i+a_nB_n.\]
@@ -32,7 +32,7 @@
         \end{enumerate}
     \end{lemma}
 
-    乍看Abel变换，你可能一时间摸不到头脑，其实Abel变换只是对\(\{a_n\},\{b_n\}\)分别进行了差分和逆差分，在这个想法下，我们只需要特别关注最后的\(a_nB_n\)项则可，而整个证明过程也只不过是裂项相消后对\(B_i\)求和。Abel引理的证明则体现了Abel变换的强大之处：在经历过差分和逆差分之后，得到的\(B_i\)一般都可以使用题目条件来控制，
+    乍看Abel变换，你可能一时间摸不到头脑，其实Abel变换只是对\(\{a_n\},\{b_n\}\)分别进行了差分和逆差分，在这个想法下，我们只需要特别关注最后的\(a_nB_n\)项则可，而整个证明过程也只不过是裂项相消后对\(B_i\)求和.Abel引理的证明则体现了Abel变换的强大之处：在经历过差分和逆差分之后，得到的\(B_i\)一般都可以使用题目条件来控制，
 
     Dirichlet判别法和Abel判别法仅仅是Abel引理的直接推论，而Leibniz判别法仅仅是Dirichlet判别法的简单推论，我们在此一并列举出来：
 
@@ -58,9 +58,9 @@
         
     \end{theorem}
 
-    {\heiti 注}（1）和前面一样，我们仍然可以通过求极限去寻找\(\lambda\)，设\[\lim\limits_{n\to\infty}\left(\frac{1}{b_n}\frac{a_n}{a_{n+1}}-\frac{1}{b_{n+1}}\right)=\lambda,\]则当\(\lambda>0\)时，\(\displaystyle\sum_{n=1}^{\infty}a_n\)收敛；当\(\lambda<0\)时，且\(\displaystyle\sum_{n=1}^{\infty}b_n\)发散时，\(\displaystyle\sum_{n=1}^{\infty}a_n\)发散。
+    {\heiti 注}（1）和前面一样，我们仍然可以通过求极限去寻找\(\lambda\)，设\[\lim\limits_{n\to\infty}\left(\frac{1}{b_n}\frac{a_n}{a_{n+1}}-\frac{1}{b_{n+1}}\right)=\lambda,\]则当\(\lambda>0\)时，\(\displaystyle\sum_{n=1}^{\infty}a_n\)收敛；当\(\lambda<0\)时，且\(\displaystyle\sum_{n=1}^{\infty}b_n\)发散时，\(\displaystyle\sum_{n=1}^{\infty}a_n\)发散.
 
-    （2）取\(b_n=1\)，从Kummer判别法就直接可以得到d'Alembert判别法。
+    （2）取\(b_n=1\)，从Kummer判别法就直接可以得到d'Alembert判别法.
     \begin{corollary}
         \begin{enumerate}
             \item （Raabe判别法）
@@ -68,7 +68,7 @@
         \end{enumerate}
     \end{corollary}
 
-    各位对下面的Cauchy凝聚判别法可能感到有些莫名其妙，但是它的思想只不过是证明无穷级数发散的方法的一个变形，只需要胆大心细的分组放缩就可以证明。
+    各位对下面的Cauchy凝聚判别法可能感到有些莫名其妙，但是它的思想只不过是证明无穷级数发散的方法的一个变形，只需要胆大心细的分组放缩就可以证明.
     \begin{theorem}[Cauchy凝聚判别法]
         
     \end{theorem}
@@ -80,7 +80,7 @@
 
     % 新的小节
     \subsection{级数的乘积}
-    有限个数的和的乘积，在我们眼中只是“转换了求和方式”，也就是使用了求和符号的魔法。举个简单的例子：\[\sum_{i=0}^{m}\sum_{j=0}^{n}a_ib_j=(a_0+a_1+\cdots+a_m)(b_0+b_1+\cdots+b_n)=\sum_{k=0}^{m+n}\sum_{i+j=k}a_ib_j=\sum_{k=0}^{m+n}c_k.\]
+    有限个数的和的乘积，在我们眼中只是“转换了求和方式”，也就是使用了求和符号的魔法.举个简单的例子：\[\sum_{i=0}^{m}\sum_{j=0}^{n}a_ib_j=(a_0+a_1+\cdots+a_m)(b_0+b_1+\cdots+b_n)=\sum_{k=0}^{m+n}\sum_{i+j=k}a_ib_j=\sum_{k=0}^{m+n}c_k.\]
     \begin{definition}[Cauchy乘积]
         
     \end{definition}
@@ -88,18 +88,18 @@
         如果\(\sum\limits_{n=0}^{\infty}a_n\)和\(\sum\limits_{n=0}^{\infty}b_n\)都绝对收敛，则他们的乘积级数也绝对收敛，且\[\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]
     \end{theorem}
 
-    如果将Cauchy定理的条件减弱，这时候下面的结果依然成立。
+    如果将Cauchy定理的条件减弱，这时候下面的结果依然成立.
     \begin{theorem}[Mertens]\label{thm:数项级数:Mertens定理}
-        如果\(\sum\limits_{n=0}^{\infty}a_n\)和\(\sum\limits_{n=0}^{\infty}b_n\)都收敛，且其中至少一个绝对收敛，则他们的乘积级数也收敛。\[\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]
+        如果\(\sum\limits_{n=0}^{\infty}a_n\)和\(\sum\limits_{n=0}^{\infty}b_n\)都收敛，且其中至少一个绝对收敛，则他们的乘积级数也收敛.\[\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]
     \end{theorem}
 
-    衡量一个定理的强弱，可以从两方面来看:一般来说，定理的条件越弱，定理越强；结果越强，定理显然也越强，\enspace \autoref{thm:数项级数:Mertens定理}的条件已经足够弱了,我们只需要其中一个级数绝对收敛，就可以得到其乘积级数也收敛，并且这边绝对收敛的条件不能去掉，比如取\(a_n\)和\(b_n\)均为交错级数\((-1)^{n-1}\dfrac{1}{\sqrt{n}}\)，那么所得到的乘积级数就是发散的。但是，当我们去掉绝对收敛的条件，并且加上其乘积级数收敛的条件，我们就能知道其值一定等于两个级数和的乘积，这就是下面的{\heiti \textbf{Abel}定理}。
+    衡量一个定理的强弱，可以从两方面来看:一般来说，定理的条件越弱，定理越强；结果越强，定理显然也越强，\enspace \autoref{thm:数项级数:Mertens定理}的条件已经足够弱了,我们只需要其中一个级数绝对收敛，就可以得到其乘积级数也收敛，并且这边绝对收敛的条件不能去掉，比如取\(a_n\)和\(b_n\)均为交错级数\((-1)^{n-1}\dfrac{1}{\sqrt{n}}\)，那么所得到的乘积级数就是发散的.但是，当我们去掉绝对收敛的条件，并且加上其乘积级数收敛的条件，我们就能知道其值一定等于两个级数和的乘积，这就是下面的{\heiti \textbf{Abel}定理}.
 
     \begin{theorem}[Abel定理]
         设级数\(\sum\limits_{n=0}^{\infty}a_n\),\enspace \(\sum\limits_{n=0}^{\infty}b_n\)收敛，以及他们的乘积\(\sum\limits_{n=0}^{\infty}c_n\)也收敛，那么\[\sum_{n=0}^{\infty}c_n = \left(\sum_{n = 0}^{\infty}a_n\right)\left(\sum_{n = 0}^{\infty}b_n\right).\]
     \end{theorem}
 
-    证明上面的定理，我们需要下面的\textbf{Abel}{\heiti 引理}，Abel引理为我们提供了一种对发散级数进行求和的想法，我们在下一节中就会讲到。
+    证明上面的定理，我们需要下面的\textbf{Abel}{\heiti 引理}，Abel引理为我们提供了一种对发散级数进行求和的想法，我们在下一节中就会讲到.
 
     \begin{lemma}[Abel引理]\label{lem:数项级数:Abel引理}
         如果级数\(\sum\limits_{n=0}^{\infty}a_n\)收敛，那么\[\lim_{x\to 1^-}\sum_{n=0}^{\infty}a_nx^n = \sum_{n=0}^{\infty}a_n.\]
@@ -109,14 +109,14 @@
     \end{proof}
 
     有了\autoref{lem:数项级数:Abel引理}，\enspace Abel定理就几乎显然了：对\(x\in(0,1)\)，级数\(\sum\limits_{n=0}^{\infty}a_nx^n\)和\(\sum\limits_{n=0}^{\infty}b_nx^n\)都是绝对收敛的，他们的乘积级数\(\sum\limits_{n=0}^{\infty}c_nx^n\)也绝对收敛，根据\autoref{thm:数项级数:Cauchy定理}，有\[\sum_{n=0}^{\infty}c_nx^n=\left(\sum_{n=0}^{\infty}a_nx^n\right)\left(\sum_{n=0}^{\infty}a_nx^n\right).\]
-    令\(x\to1^-\)，根据\autoref{lem:数项级数:Abel引理}，我们就得到了Abel定理。
+    令\(x\to1^-\)，根据\autoref{lem:数项级数:Abel引理}，我们就得到了Abel定理.
 
 % 新的一节
 \section{对数项级数的进一步讨论}
     \subsection{无穷乘积}
     \begin{definition}[无穷乘积]%\label{def:数项级数:无穷乘积}
         设\({p_n}\)是一列实数，我们将形式乘积\[\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots\]称为{\heiti 无穷乘积}，称\(P_n = p_1p_2\cdots p_n\)为无穷乘积的第\(n\)个{\heiti 部分积}，如果部分积数列\({P_n}\)的极限存在，且极限为实数或者正负无穷，我们称此极限为无穷乘积的值，记为\[\prod_{n = 1}^{\infty}p_n = \lim_{n\to\infty}P_n.\]
-        当此极限为非零实数的时候，称这个无穷乘积是{\heiti 收敛}的，否则称它是{\heiti 发散}的。
+        当此极限为非零实数的时候，称这个无穷乘积是{\heiti 收敛}的，否则称它是{\heiti 发散}的.
     \end{definition}
 
     如果某个$p_n$是零，显然无穷乘积的值就是零，下面我们假设每个$p_n$都是非零的，若无穷乘积$\prod\limits_{n=1}^{\infty}p_n$收敛于\(P\)，则\[\lim_{n\to \infty}p_n = =\lim_{n\to\infty}\frac{P_n}{P_{n-1}} = \frac{P}{P} = 1.\]
@@ -127,16 +127,16 @@
         \begin{enumerate}
             \item 无穷乘积\(\prod\limits_{n=1}^{\infty}p_n\)收敛的充要条件是级数\(\sum\limits_{n=1}^{\infty}\ln p_n\)收敛，且\[\prod\limits_{n=1}^{\infty}p_n = \exp\left(\sum_{n=1}^{\infty}\ln p_n\right);\]
             \item 如果\(n\)充分大的时候\(a_n\)不变号，则无穷乘积\(\prod\limits_{n=1}^{\infty}p_n\)收敛的充要条件是级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛；
-            \item 如果级数\(\sum\limits_{n = 1}^{\infty}a_n\)和\(\sum\limits_{n = 1}^{\infty}a^2_n\)都收敛，则无穷乘积\(\prod\limits_{n=1}^{\infty}p_n\)也收敛。
+            \item 如果级数\(\sum\limits_{n = 1}^{\infty}a_n\)和\(\sum\limits_{n = 1}^{\infty}a^2_n\)都收敛，则无穷乘积\(\prod\limits_{n=1}^{\infty}p_n\)也收敛.
         \end{enumerate}
     \end{theorem}
 
-    这些的证明都很基本，使用\(\ln (1+x)\sim x\enspace(x\to0)\)以及\(\ln (1+x)\sim x-\dfrac{x^2}{2}\enspace(x\to0)\)与比较判别法即可得到。
+    这些的证明都很基本，使用\(\ln (1+x)\sim x\enspace(x\to0)\)以及\(\ln (1+x)\sim x-\dfrac{x^2}{2}\enspace(x\to0)\)与比较判别法即可得到.
 
-    我们已经知道了，很多函数可以用级数的方式来表示，无穷乘积的美妙之处就在于，我们也可以将这些函数拿无穷乘积表示，这里以\(\sin x\)、\(\sinh x\)以及Riemann-zeta函数\(\zeta(x)\)为例。
+    我们已经知道了，很多函数可以用级数的方式来表示，无穷乘积的美妙之处就在于，我们也可以将这些函数拿无穷乘积表示，这里以\(\sin x\)、\(\sinh x\)以及Riemann-zeta函数\(\zeta(x)\)为例.
     \subsection{交换求和顺序：级数的重排}
     \begin{theorem}[Riemann]
-        如果\(\sum\limits_{n=1}^{\infty}a_n\)为条件收敛的级数，则可以将其重排为一个收敛级数，使得重排后的级数的和为任意指定的实数。
+        如果\(\sum\limits_{n=1}^{\infty}a_n\)为条件收敛的级数，则可以将其重排为一个收敛级数，使得重排后的级数的和为任意指定的实数.
     \end{theorem}
     \begin{proof}
         
@@ -148,7 +148,7 @@
         一列收敛级数\(\sum\limits_{j = 1}^{\infty}=\alpha_i\)关于\(i\)一致收敛是指：任给\(\varepsilon>0\)，存在与\(i\)无关的正整数\(N = N(\epsilon)\)，当\(n>N\)时，有\[\left|\sum_{j=1}^{\infty}a_{ij}-\alpha_i\right|<\varepsilon.\]
     \end{definition}
     
-    下面的定理给出了求极限和求和可交换次序的一个充分条件。
+    下面的定理给出了求极限和求和可交换次序的一个充分条件.
     \begin{theorem}
         设一列级数\(\sum\limits_{j=1}^{\infty}a_{ij}=\alpha_i\)关于\(i\)一致收敛，当\(j\geq1\)时，有\(\lim\limits_{i\to\infty}a_{ij}=a_j\)，则极限\(\lim\limits_{i\to\infty}\alpha_i\)存在，级数\(\sum\limits_{j=1}^{\infty}a_j\)收敛，且\[\lim_{i\to\infty}\alpha_i = \sum_{j=i}^{\infty}a_j\enspace\text{或}\enspace\lim_{i\to\infty} \sum_{j=1}^{\infty}a_{ij} = \sum_{j=1}^{\infty}\lim_{n\to\infty}a_{ij}.\]
     \end{theorem}
@@ -161,22 +161,22 @@
     \begin{definition}[Ces\`{a}ro求和]
 
     \end{definition}
-    Ces\`{a}ro可和比Abel求和更强一些，也就是如果某个级数是Ces\`{a}ro可和的，那么它一定是Abel可和的，且两种意义下的和相等，这就是下面的定理。
+    Ces\`{a}ro可和比Abel求和更强一些，也就是如果某个级数是Ces\`{a}ro可和的，那么它一定是Abel可和的，且两种意义下的和相等，这就是下面的定理.
     \begin{theorem}
         
     \end{theorem}
 % 新的一节
 \section{函数项级数}
 
-设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果对于每一个\(x\in I\)，数列\(\{g_n(x)\}\)均收敛，其极限记为\(g(x)\)，那么我们称\(\{g_n(x)\}\)收敛于\(g(x)\)，注意到这种形式的定义其实是通过{\heiti 逐点定义}得到的，我们称这个函数列{\heiti 点态收敛}于函数\(g(x)\)，记为\(\lim\limits_{n\to \infty}g_n=g\)或者\(g_n\to g\enspace(n\to\infty)\)。
+设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果对于每一个\(x\in I\)，数列\(\{g_n(x)\}\)均收敛，其极限记为\(g(x)\)，那么我们称\(\{g_n(x)\}\)收敛于\(g(x)\)，注意到这种形式的定义其实是通过{\heiti 逐点定义}得到的，我们称这个函数列{\heiti 点态收敛}于函数\(g(x)\)，记为\(\lim\limits_{n\to \infty}g_n=g\)或者\(g_n\to g\enspace(n\to\infty)\).
 
-点态收敛其实很弱，甚至连保证连续函数列的极限是连续函数都做不到：考虑函数列\(\{x^n\}\)，任给\(x\in(0,1)\)，都有\(\lim\limits_{n\to \infty}x^n = 0\)，但是当\(x=1\)的时候，\(x^n=1\)，所以其收敛于的函数\(g\)不连续。所以我们需要更强一些的收敛方式，这就是{\heiti 一致收敛}。
+点态收敛其实很弱，甚至连保证连续函数列的极限是连续函数都做不到：考虑函数列\(\{x^n\}\)，任给\(x\in(0,1)\)，都有\(\lim\limits_{n\to \infty}x^n = 0\)，但是当\(x=1\)的时候，\(x^n=1\)，所以其收敛于的函数\(g\)不连续.所以我们需要更强一些的收敛方式，这就是{\heiti 一致收敛}.
 
 \begin{definition}[一致收敛]
-    设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果任给\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(n>N\)，\(x\in I\)时，有\(\vert g_n(x)-g(x)\vert<\varepsilon\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 一致收敛}于函数\(g(x)\)，记为\(g_n(x)\rightrightarrows g(x)\)。
+    设\(I\)为区间，\(\{g_n(x)\}\)为\(I\)之中定义的一列函数，如果任给\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(n>N\)，\(x\in I\)时，有\(\vert g_n(x)-g(x)\vert<\varepsilon\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 一致收敛}于函数\(g(x)\)，记为\(g_n(x)\rightrightarrows g(x)\).
 \end{definition}
 
-显然，如果函数列\(\{g_n(x)\}\)在\(I\)上一致收敛于函数\(g(x)\)，那么它在\(I\)上点态收敛于\(g(x)\)。并且一致收敛还可以改写为：任给\(\varepsilon >0\)，存在\(N\)，当\(n>N\)时，\[\sup_{x\in I}\vert g_n(x)-g(x)\vert<\varepsilon\text{，亦即}\lim_{n\to\infty}\sup_{x\in I}\vert g_{n}(x)-g(x)\vert = 0.\]
+显然，如果函数列\(\{g_n(x)\}\)在\(I\)上一致收敛于函数\(g(x)\)，那么它在\(I\)上点态收敛于\(g(x)\).并且一致收敛还可以改写为：任给\(\varepsilon >0\)，存在\(N\)，当\(n>N\)时，\[\sup_{x\in I}\vert g_n(x)-g(x)\vert<\varepsilon\text{，亦即}\lim_{n\to\infty}\sup_{x\in I}\vert g_{n}(x)-g(x)\vert = 0.\]
 
 一致收敛保持连续性，这就是下面的定理：
 \begin{theorem}
@@ -187,10 +187,10 @@
     
 \end{proof}
 
-上面的定理其实保证了求极限次序的可交换性，对于共用一个相同的连续点的函数列，在这个连续点上，先对这个点取极限和对函数列取极限的结果是相同的。但是这个连续的条件真的是必须的吗？我们证明一个一般一点的结论，在这个结论中，我们甚至不需要连续性就可以保证取极限顺序的可交换性。
+上面的定理其实保证了求极限次序的可交换性，对于共用一个相同的连续点的函数列，在这个连续点上，先对这个点取极限和对函数列取极限的结果是相同的.但是这个连续的条件真的是必须的吗？我们证明一个一般一点的结论，在这个结论中，我们甚至不需要连续性就可以保证取极限顺序的可交换性.
 
-\begin{theorem}
-    设\(\{g_n(x)\}\)在\(x_0\)的一个空心邻域中一致收敛与函数\(g\)，如果\(g_n\)在\(x_{0}\)的函数极限为\(a_n\)，则数列极限\(\lim\limits_{n\to\infty}a_n\)和函数极限\(\lim\limits_{x\to x_0}g(x)\)都存在，并且两个极限相等：\[\lim_{x\to x_0}\lim_{n\to +\infty}g_{n}(x) = \lim_{n\to +\infty}\lim_{x\to x_0}g_{n}(x)\]
+\begin{theorem}\label{thm:函数项级数:连续性定理}
+    设\(\{g_n(x)\}\)在\(x_0\)的一个空心邻域中一致收敛与函数\(g\)，如果\(g_n\)在\(x_{0}\)的函数极限为\(a_n\)，则数列极限\(\lim\limits_{n\to\infty}a_n\)和函数极限\(\lim\limits_{x\to x_0}g(x)\)都存在，并且两个极限相等：\[\lim_{x\to x_0}\lim_{n\to \infty}g_{n}(x) = \lim_{n\to +\infty}\lim_{x\to x_0}g_{n}(x)\]
 \end{theorem}
 \begin{proof}
     
@@ -198,27 +198,40 @@
 
 更多地，我们还有{\heiti 内闭一致收敛}的定义.
 \begin{definition}[内闭一致收敛]
-    若对于任意给定的闭区间\([a,b]\subset I\)，函数列\(\{g_n(x)\}\)在\([a,b]\)上一致收敛于函数\(g(x)\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 内闭一致收敛}于函数\(g(x)\)。
+    若对于任意给定的闭区间\([a,b]\subset I\)，函数列\(\{g_n(x)\}\)在\([a,b]\)上一致收敛于函数\(g(x)\)，则称函数列\(\{g_n(x)\}\)在\(I\)上{\heiti 内闭一致收敛}于函数\(g(x)\).
 \end{definition}
 
-在\(D\)上一致收敛的函数列一定在\(D\)上内闭一致收敛，但是其逆命题不成立。
+在\(D\)上一致收敛的函数列一定在\(D\)上内闭一致收敛，但是其逆命题不成立.
 
 \subsection{函数列一致收敛的判别}
 
     \begin{theorem}
-        设函数列\(\{S_n(x)\}\)在集合\(D\)上点态收敛于函数\(S(x)\)，定义\(S_n(x)\)与\(S(x)\)的距离为\[d(S_n,S) =\sup_{x\in D}\lvert S_n(x) - S(x)\rvert.\]
-        则\(\{S_n(x)\}\)在\(D\)上一致收敛于\(S(x)\)当且仅当\(\lim\limits_{n\to\infty}d(S_n,S) = 0\).
+        设函数列\(\{g_n(x)\}\)在集合\(D\)上点态收敛于函数\(g(x)\)，定义\(g_n(x)\)与\(g(x)\)的距离为\[d(g_n,g) =\sup_{x\in D}\lvert g_n(x) - g(x)\rvert.\]
+        则\(\{g_n(x)\}\)在\(D\)上一致收敛于\(g(x)\)当且仅当\(\lim\limits_{n\to\infty}d(g_n,g) = 0\).
     \end{theorem}
     \begin{proof}
-        {\heiti 充分性}：若\(\lim\limits_{n\to\infty}d(S_n,S) = 0\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，有\[d(S_n,S) = \sup_{x\in D}\lvert S_n(x) - S(x)\rvert<\varepsilon.\]这就是一致收敛的定义。
+        {\heiti 充分性}：若\(\lim\limits_{n\to\infty}d(g_n,g) = 0\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，有\[d(g_n,g) = \sup_{x\in D}\lvert g_n(x) - g(x)\rvert<\varepsilon.\]这就是一致收敛的定义.
 
-        \noindent{\heiti 必要性}：若\(\{S_n(x)\}\)在\(D\)上一致收敛于\(S(x)\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，任给\(x\in D\)，都有\[\lvert S_n(x)-S(x)\rvert<\varepsilon.\]
-        亦即\[d(S_n,S) =\sup_{x\in D}\lvert S_n(x) - S(x)\rvert<\varepsilon.\]
+        \noindent{\heiti 必要性}：若\(\{g_n(x)\}\)在\(D\)上一致收敛于\(g(x)\)，则任给\(\varepsilon>0\)，存在\(N>0\)，当\(n>N\)时，任给\(x\in D\)，都有\[\lvert g_n(x)-g(x)\rvert<\varepsilon.\]
+        亦即\[d(g_n,g) =\sup_{x\in D}\lvert g_n(x) - g(x)\rvert<\varepsilon.\]
+        加之极限的定义，我们就得到了\(\lim\limits_{n\to\infty}d(g_n,g) = 0\)，这就完成了证明.
     \end{proof}
 
     \begin{theorem}
-        设函数列\(\{S_n(x)\}\)在集合\(D\)上点态收敛于函数\(S(x)\)，则\(\{S_n(x)\}\)在集合\(D\)上一致收敛的充分必要条件是：对于任意数列\(\{x_n\}\)，\enspace\(x_n\in D\)，成立\[\lim_{x\to \infty}(S_n(x)-S(x))=0.\]
+        设函数列\(\{g_n(x)\}\)在集合\(D\)上点态收敛于函数\(g(x)\)，则\(\{g_n(x)\}\)在集合\(D\)上一致收敛的充分必要条件是：对于任意数列\(\{x_n\}\)，\enspace\(x_n\in D\)，成立\[\lim_{n\to \infty}(g_n(x_n)-g(x_n))=0.\]
     \end{theorem}
+    \begin{proof}
+        {\heiti 充分性}：我们使用反证法，下面证明：若\(\{g_n(x)\}\)在\(D\)上不一致收敛于\(g(x)\)，则存一定存在一数列\(\{x_n\},\enspace x_n\in D\)，使得\(g_(x_n)-g(x_n)\nrightarrow0(n\to\infty)\).
+    
+        由于\(\{g_n(x)\}\)在\(D\)上不一致收敛于\(g(x)\)，则存在\(\varepsilon_0>0\)，对于任意的正整数\(N>0\)，存在\(m>N\)，存在\(x_0\in D\)使得\(\lvert g(x_0)-g_m(x_0)\rvert\geq\varepsilon_0\).
+        
+        取\(N=1\)，则存在\(m_1>1\)，存在\(x_{m_1}\in D\)使得\(\lvert g(x_{m_1})-g_{m_1}(x_{m_1})\rvert\geq\varepsilon_0\).取\(N=2\)，则存在\(m_2>m_1\)，存在\(x_{m_2}\in D\)使得\(\lvert g(x_{m_2})-g_{m_2}(x_{m_2})\rvert\geq\varepsilon_0\).
+        重复这个过程，我们就得到了一个数列\(\{x_n\}\)，其子列\(\{x_{m_n}\}\)使得\(\lvert g(x_{m_n})-g_{m_n}(x_{m_n})\rvert\geq\varepsilon_0\)，显然这个数列使得\(g_(x_n)-g(x_n)\nrightarrow0(n\to\infty)\)，充分性得证7.
+
+        \noindent{\heiti 必要性}：若\(\{g_n(x)\}\)在集合\(D\)上一致收敛，那么对于任意的\(\
+        varepsilon>0\)，存在\(N>0\)，对于任意的\(m>N,\enspace x\in D\)\[\lvert g_n(x)-g(x)\rvert<\varepsilon,\]
+        而\(x_n\in D\)，则有\[\lvert g_n(x_n)-g(x_n)\rvert <\varepsilon.\]这就完成了证明
+    \end{proof}
 
 
     \begin{theorem}[Cauchy准则]
@@ -227,14 +240,22 @@
     \begin{proof}
         
     \end{proof}
-    \begin{theorem}[Dini定理]
-        设\(\{g_n\}\)是\([a,b]\)上的一列非负连续函数，且对每一个\(x\in[a,b]\)，\enspace\(\{g_n(x)\}\)关于\(n\)单调递减趋于\(0\)，则函数列\(\{g_n\}\)一致收敛于\(0\)。
+
+    \begin{theorem}[Dini定理]\label{thm:函数项级数:Dini定理}
+        设\(\{g_n\}\)是\([a,b]\)上的一列非负连续函数，且对每一个\(x\in[a,b]\)，\enspace\(\{g_n(x)\}\)关于\(n\)单调递减趋于\(0\)，则函数列\(\{g_n\}\)一致收敛于\(0\).
     \end{theorem}
+    \begin{proof}
+        任给\(\varepsilon>0\)，我们要证明存在\(N>0\)，当\(n>N\)，\(x\in[a,b]\)时，有\(0\leq g_n(x)<\varepsilon\).设\(A_m = \{x\in[a,b]\vert g_n(x)\geq\varepsilon\}\)，由于\[A_1\supset A_2\supset\cdots\supset A_n\supset A_{n+1}\supset\cdots.\]我们下面只用证明某一个\(A_n\)为空集，这样当\(n\)充分大的时候，后面所有的\(A_m\)就都是空集了.
+
+        使用反证法，假设所有的\(A_n\)都不是空集，在每个集合之中都取一个\(x_n\in A_n\)，那么\(\{x_n\}\)就是\([a,b]\)中的有界数列，根据Bolzano定理，有界数列一定有收敛子列，这个数列的收敛子列设为\(\{x_{n_i}\}\)，并且其收敛到\(x_0\)，从上可知\[A_k\supset A_{n_k}\supset\{x_{n_k},x_{n_{k+1}},\cdots\}.\]
+        由于\(g_k(x)\)在\(x_0\)连续，我们有\[g_k(x_0)=\lim_{i\to\infty}g_k(x_{n_i})\geq\varepsilon.\]
+        上式对于每一个\(k\geq 1\)都成立，但是这就和\(\{g_n(x_0)\}\)收敛于\(0\)矛盾了，这就完成了证明.
+    \end{proof}
 
 
 \subsection{一致收敛级数的判别}
 
-    现在，设\(\{f_n(x)\}\)为一列函数，形如\(\sum\limits_{n=1}^{\infty}f_n(x)\)的形式和称为函数项级数，如果其部分和函数\(S_n(x) = \sum\limits_{k=1}^{n}f_k(x)\)在某点\(x\)处收敛，那么称这个函数项级数在该点收敛，这个点就是该级数的一个收敛点，所有收敛点的集合就是这个函数项级数的一个收敛域。在相应的收敛域上，\(S(x) = \sum\limits_{n=1}^{\infty}f_n(x)\)其实就定义了一个的{\heiti 和函数}。同理可以定义一致收敛。对于函数项级数，下面的性质与判别法与上面的是一致的.
+    现在，设\(\{f_n(x)\}\)为一列函数，形如\(\sum\limits_{n=1}^{\infty}f_n(x)\)的形式和称为函数项级数，如果其部分和函数\(S_n(x) = \sum\limits_{k=1}^{n}f_k(x)\)在某点\(x\)处收敛，那么称这个函数项级数在该点收敛，这个点就是该级数的一个收敛点，所有收敛点的集合就是这个函数项级数的一个收敛域.在相应的收敛域上，\(S(x) = \sum\limits_{n=1}^{\infty}f_n(x)\)其实就定义了一个的{\heiti 和函数}.同理可以定义一致收敛.对于函数项级数，下面的性质与判别法与上面的是一致的.
     \begin{enumerate}
         \item 如果\(f_n\)都为连续函数，并且\(\sum\limits_{n=1}^{\infty}f_n(x)\)一致收敛于\(S(x)\)，则\(S(x)\)也是连续函数；
         \item \(\sum\limits_{n=1}^{\infty}f_n(x)\)一致收敛当且仅当对于任给的\(\varepsilon>0\)，存在与\(x\)无关的正整数\(N = N(\varepsilon)\)，当\(m>n>N\)，\enspace\(x\in I\)时，有\[\vert f_{n+1}+f_{n+2}+\cdots+f_{m}(x)\vert<\varepsilon.\]
@@ -242,41 +263,118 @@
 
     \begin{theorem}[Weierrstrass判别法]
         设函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)的每一项\(f_n(x)\)都满足\[\lvert f_n(x)\rvert\leq a_n,\enspace x\in D.\]
-        并且数项级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+        并且数项级数\(\sum\limits_{n=1}^{\infty}a_n\)收敛，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛.
     \end{theorem}
     \begin{proof}
-        
+        使用Cauchy准则，对于任给的\(\varepsilon>0\)，存在\(N>0\)，对于任意的\(m>n>N\)，\enspace\(x\in D\)，有\[\lvert\sum_{k=m+1}^{n}f_k(x)\rvert \leq \sum_{k=m+1}^{n}a_k<\varepsilon.\]
+        显然这个\(N\)和\(x\)的选取无关，根据Cauchy准则，我们就完成了证明.
     \end{proof}
 
     \begin{theorem}[Abel判别法]
-        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致有界\[\lvert a_n(x)\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致收敛，则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum\limits_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致有界\[\lvert a_n(x)\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致收敛，则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛.
     \end{theorem}
     \begin{proof}
         
     \end{proof}
 
+    下面的Dini定理其实在\autoref{thm:函数项级数:Dini定理}中证明过了，这里给出另外一种证明.
+    \begin{theorem}[Dini定理]
+        设连续函数列\(\{S_n(x)\}\)在闭区间\([a,b]\)上点态收敛于连续函数\(S(x)\)，如果\(\{S_n(x)\}\)关于\(n\)单调，那么\(\{S_n(x)\}\)在\([a,b]\)上一致收敛于\(S(x)\).
+    \end{theorem}
+    \begin{proof}
+        
+    \end{proof}
+    
+    这个定理解决了\autoref{thm:函数项级数:连续性定理}的逆命题是否成立的问题：如果一个连续函数列点态收敛与一个连续函数，那么在大多数情况下这个函数列还不是一致收敛的，但是如果满足一定的条件，在这里是满足单调性，那么一直连续性就满足了，这就是这种形式的Dini定理，其相应的函数项级数形式在下面。
+
+    \begin{theorem}
+        设函数项级数
+    \end{theorem}
     \begin{theorem}[Dirichlet判别法]
-        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致收敛于\(0\)，同时函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致有界\[\lvert \sum_{n=1}^{n}\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛。
+        如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\enspace (x\in D)\)可以写成\(\sum\limits_{n=1}^{\infty}a_n(x)b_n(x)\)的形式，且满足函数列\(\{a_n(x)\}\)对每一个固定的\(x\in D\)关于\(n\)单调，且\(\{a_n(x)\}\)在\(D\)上一致收敛于\(0\)，同时函数项级数\(\sum\limits_{n=1}^{\infty}b_n(x)\)在\(D\)上一致有界\[\lvert \sum_{k=1}^{n}b_k(x)\rvert\leq M,\enspace x\in D,\enspace n\in\mathbb{N}^{+},\]则函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在\(D\)上一致收敛.
     \end{theorem}
     \begin{proof}
         
     \end{proof}
 
     \begin{theorem}
-        设\(f_n(x)\)在区间\(I\)上连续且非负，如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上收敛于连续函数\(S(x)\)，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上一致收敛于\(S(x)\)。
+        设\(f_n(x)\)在区间\(I\)上连续且非负，如果函数项级数\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上收敛于连续函数\(S(x)\)，则\(\sum\limits_{n=1}^{\infty}f_n(x)\)在区间\(I\)上一致收敛于\(S(x)\).
     \end{theorem}
     \begin{proof}
         
     \end{proof}
 
-\subsubsection{一致收敛级数的性质}
+\subsection{一致收敛级数的性质}
 
-函数项级数存在三个很自然的基本问题：首先我们知道，对于有限个函数的和，我们可以交换求极限与求和的顺序、求导与求和的顺序、积分与求和的顺序，那么对于无穷个函数的和，我们能否交换次序呢？在什么情况下可以交换次序呢？仅仅有点态收敛的条件显然是不够的。
+函数项级数存在三个很自然的基本问题：首先我们知道，对于有限个函数的和，我们可以交换求极限与求和的顺序、求导与求和的顺序、积分与求和的顺序，那么对于无穷个函数的和，我们能否交换次序呢？在什么情况下可以交换次序呢？仅仅有点态收敛的条件显然是不够的.
+
+对于求极限与求和的交换顺序的问题，根据证明过的\autoref{thm:函数项级数:连续性定理}，我们将里面的函数列看作函数项级数的部分函数，就可以得到下面的定理.
+
+\begin{theorem}[逐项求极限]
+    设对每个\(n\)，\enspace \(u_n(x)\)在\([a,b]\)上连续，且函数项级数\(\sum\limits_{n=1}^{\infty}u_n(x)\)在区间\([a,b]\)上一致收敛于\(S(x)\)，则\(S(x)\)在\([a,b]\)上连续，且对于任意\(x_0\in[a,b]\)，成立\[\lim_{x\to x_0}\sum_{k=1}^{\infty}u_k(x) = \sum_{n=1}^{\infty}\lim_{x\to x_0}u_n(x).\]即极限运算与无限和可以交换顺序.
+\end{theorem}
+
+\begin{theorem}
+    设函数列\(\{S_n(x)\}\)的每一项\(S_n(x)\)在\([a,b]\)上连续，且在\([a,b]\)上一致收敛于\(S(x)\)，则\(S(x)\)在区间\([a,b]\)上可积，且\[\int_{a}^{b}S(x)\,\mathrm{d}x = \sum_{n=1}^{\infty}\int_{a}^{b}S_n(x)\,\mathrm{d}x.\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+将上述定理中的\(\{S_n(x)\}\)看成函数项级数\(\sum\limits_{n=1}^{\infty}u_n(x)\)的部分和函数列，对应到函数项级数，我们就得到下面的{\heiti 逐项积分定理}：
+\begin{theorem}[逐项积分定理]
+    设对每个\(n\)，\enspace \(u_n(x)\)在\([a,b]\)上连续，且函数项级数\(\sum\limits_{n=1}^{\infty}u_n(x)\)在区间\([a,b]\)上一致收敛于\(S(x)\)，则\(S(x)\)在\([a,b]\)上可积，且\[\int_{a}^{b}S(x)\,\mathrm{d}x = \int_{a}^{b}\sum_{n=1}^{\infty}u_n(x)\,\dd x = \sum_{n=1}^{\infty}\int_{a}^{b}u_n(x)\,\dd x.\]
+    更进一步地，对任意固定的\(x_0\in [a,b]\)，函数列\(\{\ds\int_{x_0}^{x}S_n(t)\,\dd t\}\)在\([a,b]\)上一致收敛于\(\ds\int_{x_0}^{x}S(t)\,\dd t\)，同样地，函数项级数\(\{\ds\sum_{n=1}^{\infty}\int_{x_0}^{x}u_n(t)\,\dd t\}\)在\([a,b]\)上一致收敛于\(\ds\int_{x_0}^{x}S(t)\,\dd t\).
+\end{theorem}
+
+\begin{theorem}
+    如果函数列\(\{S_n(x)\}\)满足：对每一个\(n\)，\enspace \(S_n(x)\)在\([a,b]\)上有连续的导函数，\(\{S_n(x)\}\)在\([a,b]\)上点态收敛于\(S_n(x)\)，且\(\{S_n^{'}(x)\}\)在\([a,b]\)上一致收敛于\(\sigma(x)\)，则\(S(x)\)在\([a,b]\)上可导，且\(\sigma(x) = S^{'}(x)\).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+将上述定理中的\(\{S_n(x)\}\)看成函数项级数\(\sum\limits_{n=1}^{\infty}u_n(x)\)的部分和函数列，对应到函数项级数，我们就得到下面的{\heiti 逐项求导定理}：
+\begin{theorem}[逐项求导定理]
+    设函数项级数\(\sum\limits_{n=1}^{\infty}u_n(x)\)满足：对每一个\(n\)，\enspace \(u_n(x)\)在\([a,b]\)上有连续的导函数，\(\{u_n(x)\}\)在\([a,b]\)上点态收敛于函数\(S(x)\)，且\(\{u_n^{'}(x)\}\)在\([a,b]\)上一致收敛于\(\sigma(x)\)，则\(S(x)\)在\([a,b]\)上可导，且\[\frac{\dd}{\dd x}\sum_{n=1}^{\infty}u_n(x)=\sum_{n=1}^{\infty}\frac{\dd}{\dd x}u_n(x).\]
+\end{theorem}
 
 
 
-\section{幂级数}
-\section{求和与求导、积分的可交换性}
+\subsection{幂级数}
+
+\begin{definition}[幂级数]
+    我们将形如\[\sum_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots+a_n(x-x_0)^n+\cdots\]
+    这样的函数项级数称为{\heiti 幂级数}.
+\end{definition}
+
+幂级数可以看作是一个无限次多项式，其部分和函数\(S_n(x)\)是一个\(n-1\)次多项式，为了方便，我们一般取\(x_0=0\)，只需要将结果做一个简单的平移就可以得到我们真正想要讨论的幂级数了.幂级数的一致敛散性非常好，这就有很多奇妙的应用。
+
+对于幂级数\(\sum\limits_{n=1}^{\infty}a_nx^n\)，首先有\[\limsup_{n\to\infty}\sqrt[n]{\lvert a_nx^n\rvert}=\limsup_{n\to\infty}\sqrt[n]{\lvert a_n\rvert}\cdot\lvert x\rvert.\]根据Cauchy判别法，上式小于\(1\)的时候，该幂级数绝对收敛，大于\(1\)的时候幂级数发散，如果令\(A=\limsup\limits_{n\to\infty}\sqrt[n]{\lvert a_n\rvert}\)，我们有以下的Cauchy-Hadamard定理.
+
+\begin{theorem}[Cauchy-Hadamard定理]
+    幂级数\(\sum\limits_{n=1}^{\infty}a_nx^n\)的收敛域关于\(x=0\)对称，收敛域区间长的一半被称为{\heiti 收敛半径}\(R\)，并且满足\[R=\begin{cases}
+        +\infty &\text{当}A=0;\\
+        \dfrac{1}{A} &\text{当}A\in (0,+\infty);\\
+        0 &\text{当}A=+\infty.
+    \end{cases}\]当\(A=+\infty\)的时候，收敛半径为\(0\)，幂级数只在\(x=x_0\)的时候收敛；当\(R=+\infty\)时，对于一切的\(x\)，幂级数都是收敛的；在此之外，当\(\lvert x\rvert<R\)的时候，幂级数收敛，\(\lvert x\rvert>R\)的时候，幂级数发散.区间的端点需要特别判断.
+\end{theorem}
+
+下面的d'Alembert判别法在幂级数敛散性的判别上也很好用.
+\begin{theorem}[d'Alembert判别法]
+    如果对幂级数\(\sum\limits_{n=1}^{\infty}a_nx^n\)，下面极限存在\[\lim_{n\to\infty}\lvert \frac{a_{n+1}}{a_n}\rvert = A.\]
+    那么幂级数的收敛半径为\(R=\dfrac{1}{A}\).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+
+
+Stirling公式在幂级数中比较常用，我们复习一下：
+\[n!=\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n}\enspace (n\to\infty).\]
+\section{对函数项级数的进一步讨论}
+
 \section{习题：数项级数}
 \begin{exercise}[判断下列正项级数的敛散性]
     \begin{enumerate}
